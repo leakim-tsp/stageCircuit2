@@ -1,0 +1,134 @@
+
+
+================================================================
+== Vivado HLS Report for 'tiled_matvec_entry3'
+================================================================
+* Date:           Mon Jun  1 11:30:30 2020
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        matvec
+* Solution:       solution3
+* Product family: virtex7
+* Target device:  xc7vx485t-ffg1157-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 2.932 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        0|        0|   0 ns   |   0 ns   |    0|    0|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|       2|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|       -|       -|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|      27|    -|
+|Register         |        -|      -|       3|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      0|       3|      29|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |     2060|   2800|  607200|  303600|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------+----------+-------+---+----+------------+------------+
+    |  Variable Name  | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------+----------+-------+---+----+------------+------------+
+    |ap_block_state1  |    or    |      0|  0|   2|           1|           1|
+    +-----------------+----------+-------+---+----+------------+------------+
+    |Total            |          |      0|  0|   2|           1|           1|
+    +-----------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +--------------+----+-----------+-----+-----------+
+    |     Name     | LUT| Input Size| Bits| Total Bits|
+    +--------------+----+-----------+-----+-----------+
+    |ap_done       |   9|          2|    1|          2|
+    |i2_out_blk_n  |   9|          2|    1|          2|
+    |real_start    |   9|          2|    1|          2|
+    +--------------+----+-----------+-----+-----------+
+    |Total         |  27|          6|    3|          6|
+    +--------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------+---+----+-----+-----------+
+    |      Name      | FF| LUT| Bits| Const Bits|
+    +----------------+---+----+-----+-----------+
+    |ap_CS_fsm       |  1|   0|    1|          0|
+    |ap_done_reg     |  1|   0|    1|          0|
+    |start_once_reg  |  1|   0|    1|          0|
+    +----------------+---+----+-----+-----------+
+    |Total           |  3|   0|    3|          0|
+    +----------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------+-----+-----+------------+---------------------+--------------+
+|   RTL Ports   | Dir | Bits|  Protocol  |    Source Object    |    C Type    |
++---------------+-----+-----+------------+---------------------+--------------+
+|ap_clk         |  in |    1| ap_ctrl_hs | tiled_matvec.entry3 | return value |
+|ap_rst         |  in |    1| ap_ctrl_hs | tiled_matvec.entry3 | return value |
+|ap_start       |  in |    1| ap_ctrl_hs | tiled_matvec.entry3 | return value |
+|start_full_n   |  in |    1| ap_ctrl_hs | tiled_matvec.entry3 | return value |
+|ap_done        | out |    1| ap_ctrl_hs | tiled_matvec.entry3 | return value |
+|ap_continue    |  in |    1| ap_ctrl_hs | tiled_matvec.entry3 | return value |
+|ap_idle        | out |    1| ap_ctrl_hs | tiled_matvec.entry3 | return value |
+|ap_ready       | out |    1| ap_ctrl_hs | tiled_matvec.entry3 | return value |
+|start_out      | out |    1| ap_ctrl_hs | tiled_matvec.entry3 | return value |
+|start_write    | out |    1| ap_ctrl_hs | tiled_matvec.entry3 | return value |
+|i2             |  in |   32|   ap_none  |          i2         |    pointer   |
+|i2_out_din     | out |   32|   ap_fifo  |        i2_out       |    pointer   |
+|i2_out_full_n  |  in |    1|   ap_fifo  |        i2_out       |    pointer   |
+|i2_out_write   | out |    1|   ap_fifo  |        i2_out       |    pointer   |
++---------------+-----+-----+------------+---------------------+--------------+
+

@@ -1,0 +1,173 @@
+
+
+================================================================
+== Vivado HLS Report for 'Loop_1_proc10'
+================================================================
+* Date:           Mon Jun  1 11:35:24 2020
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        matvec
+* Solution:       solution4
+* Product family: virtex7
+* Target device:  xc7vx485t-ffg1157-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 2.932 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       11|       11| 0.110 us | 0.110 us |   11|   11|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                       |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |       Loop Name       |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-----------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Loop 1               |       10|       10|         5|          -|          -|     2|    no    |
+        | + tiled_matvec_loadA  |        2|        2|         1|          1|          1|     2|    yes   |
+        +-----------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 1
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 4
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 1, States = { 3 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 3 
+4 --> 2 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.18>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecInterface(i32* %Atile_V_vec_0, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 5 'specinterface' 'empty' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%empty_25 = call i32 (...)* @_ssdm_op_SpecInterface(i32* %Atile_V_vec_1, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 6 'specinterface' 'empty_25' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (1.18ns)   --->   "br label %.loopexit"   --->   Operation 7 'br' <Predicate = true> <Delay = 1.18>
+
+State 2 <SV = 1> <Delay = 2.93>
+ST_2 : Operation 8 [1/1] (0.00ns)   --->   "%i_0_i_i_i = phi i2 [ 0, %entry ], [ %i, %.loopexit.loopexit ]"   --->   Operation 8 'phi' 'i_0_i_i_i' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 9 [1/1] (0.61ns)   --->   "%icmp_ln8 = icmp eq i2 %i_0_i_i_i, -2" [matvec.cpp:8]   --->   Operation 9 'icmp' 'icmp_ln8' <Predicate = true> <Delay = 0.61> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 10 [1/1] (0.00ns)   --->   "%empty_26 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2, i64 2, i64 2)"   --->   Operation 10 'speclooptripcount' 'empty_26' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 11 [1/1] (1.00ns)   --->   "%i = add i2 %i_0_i_i_i, 1" [matvec.cpp:8]   --->   Operation 11 'add' 'i' <Predicate = true> <Delay = 1.00> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.00> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 12 [1/1] (0.00ns)   --->   "br i1 %icmp_ln8, label %Loop_1_proc10.exit, label %1" [matvec.cpp:8]   --->   Operation 12 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 13 [1/1] (2.93ns)   --->   "%empty_28 = call { i32, i32 } @_ssdm_op_Read.ap_fifo.volatile.i32P.i32P(i32* %Atile_V_vec_0, i32* %Atile_V_vec_1)" [matvec.cpp:9]   --->   Operation 13 'read' 'empty_28' <Predicate = (!icmp_ln8)> <Delay = 2.93> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.93> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 3> <FIFO>
+ST_2 : Operation 14 [1/1] (0.00ns)   --->   "%tmp_vec_0 = extractvalue { i32, i32 } %empty_28, 0" [matvec.cpp:9]   --->   Operation 14 'extractvalue' 'tmp_vec_0' <Predicate = (!icmp_ln8)> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%tmp_vec_1 = extractvalue { i32, i32 } %empty_28, 1" [matvec.cpp:9]   --->   Operation 15 'extractvalue' 'tmp_vec_1' <Predicate = (!icmp_ln8)> <Delay = 0.00>
+ST_2 : Operation 16 [1/1] (0.00ns)   --->   "%tmp = call i3 @_ssdm_op_BitConcatenate.i3.i2.i1(i2 %i_0_i_i_i, i1 false)" [matvec.cpp:11]   --->   Operation 16 'bitconcatenate' 'tmp' <Predicate = (!icmp_ln8)> <Delay = 0.00>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "%zext_ln11 = zext i3 %tmp to i4" [matvec.cpp:11]   --->   Operation 17 'zext' 'zext_ln11' <Predicate = (!icmp_ln8)> <Delay = 0.00>
+ST_2 : Operation 18 [1/1] (1.18ns)   --->   "br label %0" [matvec.cpp:10]   --->   Operation 18 'br' <Predicate = (!icmp_ln8)> <Delay = 1.18>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 19 'ret' <Predicate = (icmp_ln8)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 2.60>
+ST_3 : Operation 20 [1/1] (0.00ns)   --->   "%j_0_i_i_i = phi i2 [ 0, %1 ], [ %j, %tiled_matvec_loadA ]"   --->   Operation 20 'phi' 'j_0_i_i_i' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 21 [1/1] (0.61ns)   --->   "%icmp_ln10 = icmp eq i2 %j_0_i_i_i, -2" [matvec.cpp:10]   --->   Operation 21 'icmp' 'icmp_ln10' <Predicate = true> <Delay = 0.61> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 22 [1/1] (0.00ns)   --->   "%empty_27 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2, i64 2, i64 2)"   --->   Operation 22 'speclooptripcount' 'empty_27' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 23 [1/1] (1.00ns)   --->   "%j = add i2 %j_0_i_i_i, 1" [matvec.cpp:10]   --->   Operation 23 'add' 'j' <Predicate = true> <Delay = 1.00> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.00> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "br i1 %icmp_ln10, label %.loopexit.loopexit, label %tiled_matvec_loadA" [matvec.cpp:10]   --->   Operation 24 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([19 x i8]* @p_str1) nounwind" [matvec.cpp:10]   --->   Operation 25 'specloopname' <Predicate = (!icmp_ln10)> <Delay = 0.00>
+ST_3 : Operation 26 [1/1] (0.00ns)   --->   "%tmp_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([19 x i8]* @p_str1)" [matvec.cpp:10]   --->   Operation 26 'specregionbegin' 'tmp_i' <Predicate = (!icmp_ln10)> <Delay = 0.00>
+ST_3 : Operation 27 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind" [matvec.cpp:11]   --->   Operation 27 'specpipeline' <Predicate = (!icmp_ln10)> <Delay = 0.00>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "%trunc_ln11 = trunc i2 %j_0_i_i_i to i1" [matvec.cpp:11]   --->   Operation 28 'trunc' 'trunc_ln11' <Predicate = (!icmp_ln10)> <Delay = 0.00>
+ST_3 : Operation 29 [1/1] (0.61ns)   --->   "%select_ln11 = select i1 %trunc_ln11, i32 %tmp_vec_1, i32 %tmp_vec_0" [matvec.cpp:11]   --->   Operation 29 'select' 'select_ln11' <Predicate = (!icmp_ln10)> <Delay = 0.61> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 30 [1/1] (0.00ns)   --->   "%zext_ln11_1 = zext i2 %j_0_i_i_i to i4" [matvec.cpp:11]   --->   Operation 30 'zext' 'zext_ln11_1' <Predicate = (!icmp_ln10)> <Delay = 0.00>
+ST_3 : Operation 31 [1/1] (1.18ns)   --->   "%add_ln11 = add i4 %zext_ln11, %zext_ln11_1" [matvec.cpp:11]   --->   Operation 31 'add' 'add_ln11' <Predicate = (!icmp_ln10)> <Delay = 1.18> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.00> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 32 [1/1] (0.00ns)   --->   "%zext_ln11_2 = zext i4 %add_ln11 to i64" [matvec.cpp:11]   --->   Operation 32 'zext' 'zext_ln11_2' <Predicate = (!icmp_ln10)> <Delay = 0.00>
+ST_3 : Operation 33 [1/1] (0.00ns)   --->   "%A_addr = getelementptr [4 x i32]* %A, i64 0, i64 %zext_ln11_2" [matvec.cpp:11]   --->   Operation 33 'getelementptr' 'A_addr' <Predicate = (!icmp_ln10)> <Delay = 0.00>
+ST_3 : Operation 34 [1/1] (1.42ns)   --->   "store i32 %select_ln11, i32* %A_addr, align 4" [matvec.cpp:11]   --->   Operation 34 'store' <Predicate = (!icmp_ln10)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
+ST_3 : Operation 35 [1/1] (0.00ns)   --->   "%empty_29 = call i32 (...)* @_ssdm_op_SpecRegionEnd([19 x i8]* @p_str1, i32 %tmp_i)" [matvec.cpp:12]   --->   Operation 35 'specregionend' 'empty_29' <Predicate = (!icmp_ln10)> <Delay = 0.00>
+ST_3 : Operation 36 [1/1] (0.00ns)   --->   "br label %0" [matvec.cpp:10]   --->   Operation 36 'br' <Predicate = (!icmp_ln10)> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 0.00>
+ST_4 : Operation 37 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 37 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.18ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', matvec.cpp:8) [8]  (1.18 ns)
+
+ <State 2>: 2.93ns
+The critical path consists of the following:
+	fifo read on port 'Atile_V_vec_0' (matvec.cpp:9) [14]  (2.93 ns)
+
+ <State 3>: 2.61ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', matvec.cpp:10) [21]  (0 ns)
+	'add' operation ('add_ln11', matvec.cpp:11) [33]  (1.18 ns)
+	'getelementptr' operation ('A_addr', matvec.cpp:11) [35]  (0 ns)
+	'store' operation ('store_ln11', matvec.cpp:11) of variable 'select_ln11', matvec.cpp:11 on array 'A' [36]  (1.43 ns)
+
+ <State 4>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

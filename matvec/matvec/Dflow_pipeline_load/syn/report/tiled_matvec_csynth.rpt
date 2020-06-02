@@ -1,0 +1,210 @@
+
+
+================================================================
+== Vivado HLS Report for 'tiled_matvec'
+================================================================
+* Date:           Mon Jun  1 11:18:30 2020
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        matvec
+* Solution:       solution2
+* Product family: virtex7
+* Target device:  xc7vx485t-ffg1157-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 8.035 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+----------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+    |   min   |   max   |    min   |    max   | min | max |   Type   |
+    +---------+---------+----------+----------+-----+-----+----------+
+    |       23|       26| 0.230 us | 0.260 us |   20|   20| dataflow |
+    +---------+---------+----------+----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        +-------------------------+----------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |                         |                      |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+        |         Instance        |        Module        |   min   |   max   |    min    |    max    | min | max |   Type  |
+        +-------------------------+----------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |Loop_memset_y_proc_U0    |Loop_memset_y_proc    |       19|       19|  0.190 us |  0.190 us |   19|   19|   none  |
+        |Block_tiled_matvec_U0    |Block_tiled_matvec_s  |        1|        4| 10.000 ns | 40.000 ns |    1|    4|   none  |
+        |Loop_5_proc_U0           |Loop_5_proc           |        5|        5| 50.000 ns | 50.000 ns |    5|    5|   none  |
+        |Loop_1_proc10_U0         |Loop_1_proc10         |       11|       11|  0.110 us |  0.110 us |   11|   11|   none  |
+        |tiled_matvec_entry3_U0   |tiled_matvec_entry3   |        0|        0|    0 ns   |    0 ns   |    0|    0|   none  |
+        |tiled_matvec_entry12_U0  |tiled_matvec_entry12  |        0|        0|    0 ns   |    0 ns   |    0|    0|   none  |
+        +-------------------------+----------------------+---------+---------+-----------+-----------+-----+-----+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|      60|    -|
+|FIFO             |        0|      -|      20|     176|    -|
+|Instance         |        -|      3|     309|     764|    -|
+|Memory           |        0|      -|     128|       2|    0|
+|Multiplexer      |        -|      -|       -|      72|    -|
+|Register         |        -|      -|      12|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      3|     469|    1074|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |     2060|   2800|  607200|  303600|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|   ~0  |   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +-------------------------+----------------------+---------+-------+-----+-----+-----+
+    |         Instance        |        Module        | BRAM_18K| DSP48E|  FF | LUT | URAM|
+    +-------------------------+----------------------+---------+-------+-----+-----+-----+
+    |Block_tiled_matvec_U0    |Block_tiled_matvec_s  |        0|      0|  102|  148|    0|
+    |Loop_1_proc10_U0         |Loop_1_proc10         |        0|      0|   79|  180|    0|
+    |Loop_5_proc_U0           |Loop_5_proc           |        0|      0|   42|  162|    0|
+    |Loop_memset_y_proc_U0    |Loop_memset_y_proc    |        0|      3|   81|  216|    0|
+    |tiled_matvec_entry12_U0  |tiled_matvec_entry12  |        0|      0|    2|   29|    0|
+    |tiled_matvec_entry3_U0   |tiled_matvec_entry3   |        0|      0|    3|   29|    0|
+    +-------------------------+----------------------+---------+-------+-----+-----+-----+
+    |Total                    |                      |        0|      3|  309|  764|    0|
+    +-------------------------+----------------------+---------+-------+-----+-----+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    +-------+----------------+---------+----+----+-----+------+-----+------+-------------+
+    | Memory|     Module     | BRAM_18K| FF | LUT| URAM| Words| Bits| Banks| W*Bits*Banks|
+    +-------+----------------+---------+----+----+-----+------+-----+------+-------------+
+    |x_U    |tiled_matvec_x  |        0|  64|   1|    0|     2|   32|     2|          128|
+    |y_U    |tiled_matvec_y  |        0|  64|   1|    0|     2|   32|     2|          128|
+    +-------+----------------+---------+----+----+-----+------+-----+------+-------------+
+    |Total  |                |        0| 128|   2|    0|     4|   64|     4|          256|
+    +-------+----------------+---------+----+----+-----+------+-----+------+-------------+
+
+    * FIFO: 
+    +-----------------+---------+---+----+-----+------+-----+---------+
+    |       Name      | BRAM_18K| FF| LUT| URAM| Depth| Bits| Size:D*B|
+    +-----------------+---------+---+----+-----+------+-----+---------+
+    |A_U              |        0|  5|   0|    -|     4|   32|      128|
+    |i2_c1_U          |        0|  5|   0|    -|     2|   32|       64|
+    |i2_c_U           |        0|  5|   0|    -|     2|   32|       64|
+    |i2_load_loc_c_U  |        0|  5|   0|    -|     3|   32|       96|
+    +-----------------+---------+---+----+-----+------+-----+---------+
+    |Total            |        0| 20|   0|    0|    11|  128|      352|
+    +-----------------+---------+---+----+-----+------+-----+---------+
+
+    * Expression: 
+    +-----------------------------------------+----------+-------+---+----+------------+------------+
+    |              Variable Name              | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------------------------+----------+-------+---+----+------------+------------+
+    |Block_tiled_matvec_U0_ap_ready_count     |     +    |      0|  0|  10|           2|           1|
+    |Loop_1_proc10_U0_ap_ready_count          |     +    |      0|  0|  10|           2|           1|
+    |Loop_5_proc_U0_ap_ready_count            |     +    |      0|  0|  10|           2|           1|
+    |tiled_matvec_entry3_U0_ap_ready_count    |     +    |      0|  0|  10|           2|           1|
+    |Block_tiled_matvec_U0_ap_start           |    and   |      0|  0|   2|           1|           1|
+    |Loop_1_proc10_U0_ap_start                |    and   |      0|  0|   2|           1|           1|
+    |Loop_5_proc_U0_ap_start                  |    and   |      0|  0|   2|           1|           1|
+    |ap_idle                                  |    and   |      0|  0|   2|           1|           1|
+    |ap_sync_ready                            |    and   |      0|  0|   2|           1|           1|
+    |tiled_matvec_entry3_U0_ap_start          |    and   |      0|  0|   2|           1|           1|
+    |ap_sync_Block_tiled_matvec_U0_ap_ready   |    or    |      0|  0|   2|           1|           1|
+    |ap_sync_Loop_1_proc10_U0_ap_ready        |    or    |      0|  0|   2|           1|           1|
+    |ap_sync_Loop_5_proc_U0_ap_ready          |    or    |      0|  0|   2|           1|           1|
+    |ap_sync_tiled_matvec_entry3_U0_ap_ready  |    or    |      0|  0|   2|           1|           1|
+    +-----------------------------------------+----------+-------+---+----+------------+------------+
+    |Total                                    |          |      0|  0|  60|          18|          14|
+    +-----------------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +---------------------------------------------+----+-----------+-----+-----------+
+    |                     Name                    | LUT| Input Size| Bits| Total Bits|
+    +---------------------------------------------+----+-----------+-----+-----------+
+    |Block_tiled_matvec_U0_ap_ready_count         |   9|          2|    2|          4|
+    |Loop_1_proc10_U0_ap_ready_count              |   9|          2|    2|          4|
+    |Loop_5_proc_U0_ap_ready_count                |   9|          2|    2|          4|
+    |ap_sync_reg_Block_tiled_matvec_U0_ap_ready   |   9|          2|    1|          2|
+    |ap_sync_reg_Loop_1_proc10_U0_ap_ready        |   9|          2|    1|          2|
+    |ap_sync_reg_Loop_5_proc_U0_ap_ready          |   9|          2|    1|          2|
+    |ap_sync_reg_tiled_matvec_entry3_U0_ap_ready  |   9|          2|    1|          2|
+    |tiled_matvec_entry3_U0_ap_ready_count        |   9|          2|    2|          4|
+    +---------------------------------------------+----+-----------+-----+-----------+
+    |Total                                        |  72|         16|   12|         24|
+    +---------------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------------------------------------+---+----+-----+-----------+
+    |                     Name                    | FF| LUT| Bits| Const Bits|
+    +---------------------------------------------+---+----+-----+-----------+
+    |Block_tiled_matvec_U0_ap_ready_count         |  2|   0|    2|          0|
+    |Loop_1_proc10_U0_ap_ready_count              |  2|   0|    2|          0|
+    |Loop_5_proc_U0_ap_ready_count                |  2|   0|    2|          0|
+    |ap_sync_reg_Block_tiled_matvec_U0_ap_ready   |  1|   0|    1|          0|
+    |ap_sync_reg_Loop_1_proc10_U0_ap_ready        |  1|   0|    1|          0|
+    |ap_sync_reg_Loop_5_proc_U0_ap_ready          |  1|   0|    1|          0|
+    |ap_sync_reg_tiled_matvec_entry3_U0_ap_ready  |  1|   0|    1|          0|
+    |tiled_matvec_entry3_U0_ap_ready_count        |  2|   0|    2|          0|
+    +---------------------------------------------+---+----+-----+-----------+
+    |Total                                        | 12|   0|   12|          0|
+    +---------------------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------+-----+-----+------------+---------------+--------------+
+|       RTL Ports       | Dir | Bits|  Protocol  | Source Object |    C Type    |
++-----------------------+-----+-----+------------+---------------+--------------+
+|ap_clk                 |  in |    1| ap_ctrl_hs |  tiled_matvec | return value |
+|ap_rst                 |  in |    1| ap_ctrl_hs |  tiled_matvec | return value |
+|ap_start               |  in |    1| ap_ctrl_hs |  tiled_matvec | return value |
+|ap_done                | out |    1| ap_ctrl_hs |  tiled_matvec | return value |
+|ap_ready               | out |    1| ap_ctrl_hs |  tiled_matvec | return value |
+|ap_idle                | out |    1| ap_ctrl_hs |  tiled_matvec | return value |
+|Atile_V_vec_0_dout     |  in |   32|   ap_fifo  | Atile_V_vec_0 |    pointer   |
+|Atile_V_vec_0_empty_n  |  in |    1|   ap_fifo  | Atile_V_vec_0 |    pointer   |
+|Atile_V_vec_0_read     | out |    1|   ap_fifo  | Atile_V_vec_0 |    pointer   |
+|Atile_V_vec_1_dout     |  in |   32|   ap_fifo  | Atile_V_vec_1 |    pointer   |
+|Atile_V_vec_1_empty_n  |  in |    1|   ap_fifo  | Atile_V_vec_1 |    pointer   |
+|Atile_V_vec_1_read     | out |    1|   ap_fifo  | Atile_V_vec_1 |    pointer   |
+|xtile_V_vec_0_dout     |  in |   32|   ap_fifo  | xtile_V_vec_0 |    pointer   |
+|xtile_V_vec_0_empty_n  |  in |    1|   ap_fifo  | xtile_V_vec_0 |    pointer   |
+|xtile_V_vec_0_read     | out |    1|   ap_fifo  | xtile_V_vec_0 |    pointer   |
+|xtile_V_vec_1_dout     |  in |   32|   ap_fifo  | xtile_V_vec_1 |    pointer   |
+|xtile_V_vec_1_empty_n  |  in |    1|   ap_fifo  | xtile_V_vec_1 |    pointer   |
+|xtile_V_vec_1_read     | out |    1|   ap_fifo  | xtile_V_vec_1 |    pointer   |
+|ypartial_address0      | out |    3|  ap_memory |    ypartial   |     array    |
+|ypartial_ce0           | out |    1|  ap_memory |    ypartial   |     array    |
+|ypartial_d0            | out |   32|  ap_memory |    ypartial   |     array    |
+|ypartial_q0            |  in |   32|  ap_memory |    ypartial   |     array    |
+|ypartial_we0           | out |    1|  ap_memory |    ypartial   |     array    |
+|ypartial_address1      | out |    3|  ap_memory |    ypartial   |     array    |
+|ypartial_ce1           | out |    1|  ap_memory |    ypartial   |     array    |
+|ypartial_d1            | out |   32|  ap_memory |    ypartial   |     array    |
+|ypartial_q1            |  in |   32|  ap_memory |    ypartial   |     array    |
+|ypartial_we1           | out |    1|  ap_memory |    ypartial   |     array    |
+|i1                     |  in |   32|   ap_none  |       i1      |    pointer   |
+|i2                     |  in |   32|   ap_none  |       i2      |    pointer   |
++-----------------------+-----+-----+------------+---------------+--------------+
+

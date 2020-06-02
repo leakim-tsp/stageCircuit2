@@ -1,0 +1,184 @@
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+WARNING: [HLS 200-40] Cannot find library '/tools/Xilinx/Vivado/2019.2/common/technology/xilinx/Virtex-7/Virtex-7.lib'.
+WARNING: [HLS 200-40] Cannot find library 'xilinx/Virtex-7/Virtex-7'.
+INFO: [HLS 200-10] Setting target device to 'xc7vx485t-ffg1157-1'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'matvec.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 898.758 ; gain = 459.035 ; free physical = 171 ; free virtual = 3071
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 898.758 ; gain = 459.035 ; free physical = 171 ; free virtual = 3071
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 898.758 ; gain = 459.035 ; free physical = 151 ; free virtual = 3105
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 898.758 ; gain = 459.035 ; free physical = 149 ; free virtual = 3104
+INFO: [XFORM 203-502] Unrolling small iteration loop 'Loop-2' (matvec.cpp:19) in function 'tiled_matvec' automatically.
+INFO: [XFORM 203-502] Unrolling small iteration loop 'Loop-3' (matvec.cpp:25) in function 'tiled_matvec' automatically.
+INFO: [XFORM 203-502] Unrolling small iteration loop 'Loop-4' (matvec.cpp:26) in function 'tiled_matvec' automatically.
+INFO: [XFORM 203-502] Unrolling small iteration loop 'Loop-4.1' (matvec.cpp:27) in function 'tiled_matvec' automatically.
+INFO: [XFORM 203-502] Unrolling small iteration loop 'Loop-5' (matvec.cpp:33) in function 'tiled_matvec' automatically.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2' (matvec.cpp:19) in function 'tiled_matvec' completely with a factor of 0.
+INFO: [HLS 200-489] Unrolling loop 'Loop-3' (matvec.cpp:25) in function 'tiled_matvec' completely with a factor of 0.
+INFO: [HLS 200-489] Unrolling loop 'Loop-4' (matvec.cpp:26) in function 'tiled_matvec' completely with a factor of 0.
+INFO: [HLS 200-489] Unrolling loop 'Loop-5' (matvec.cpp:33) in function 'tiled_matvec' completely with a factor of 0.
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'Atile.V.vec' (matvec.cpp:3) .
+INFO: [XFORM 203-101] Partitioning array 'Atile.V.vec' (matvec.cpp:3) in dimension 1 completely.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 898.758 ; gain = 459.035 ; free physical = 127 ; free virtual = 3083
+WARNING: [XFORM 203-561] 'Loop-1' (matvec.cpp:10:34) in function 'tiled_matvec' is an infinite loop.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 898.758 ; gain = 459.035 ; free physical = 125 ; free virtual = 3082
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'tiled_matvec' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'tiled_matvec' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 11.14 seconds; current allocated memory: 111.081 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.01 seconds; current allocated memory: 111.159 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'tiled_matvec' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'tiled_matvec/Atile_V_vec_0' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'tiled_matvec/Atile_V_vec_1' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'tiled_matvec/Atile_V_vec_2' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'tiled_matvec/Atile_V_vec_3' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'tiled_matvec/xtile_V_vec' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'tiled_matvec/ypartial_vec' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'tiled_matvec/i1' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'tiled_matvec/i2' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'tiled_matvec' to 'ap_ctrl_hs'.
+WARNING: [RTGEN 206-101] Port 'tiled_matvec/xtile_V_vec_address0' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'tiled_matvec/xtile_V_vec_address0' to 0.
+WARNING: [RTGEN 206-101] Port 'tiled_matvec/xtile_V_vec_ce0' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'tiled_matvec/xtile_V_vec_ce0' to 0.
+WARNING: [RTGEN 206-101] Port 'tiled_matvec/xtile_V_vec_we0' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'tiled_matvec/xtile_V_vec_we0' to 0.
+WARNING: [RTGEN 206-101] Port 'tiled_matvec/xtile_V_vec_d0' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'tiled_matvec/xtile_V_vec_d0' to 0.
+WARNING: [RTGEN 206-101] Port 'tiled_matvec/xtile_V_vec_q0' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'tiled_matvec/xtile_V_vec_address1' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'tiled_matvec/xtile_V_vec_address1' to 0.
+WARNING: [RTGEN 206-101] Port 'tiled_matvec/xtile_V_vec_ce1' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'tiled_matvec/xtile_V_vec_ce1' to 0.
+WARNING: [RTGEN 206-101] Port 'tiled_matvec/xtile_V_vec_we1' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'tiled_matvec/xtile_V_vec_we1' to 0.
+WARNING: [RTGEN 206-101] Port 'tiled_matvec/xtile_V_vec_d1' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'tiled_matvec/xtile_V_vec_d1' to 0.
+WARNING: [RTGEN 206-101] Port 'tiled_matvec/xtile_V_vec_q1' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'tiled_matvec/ypartial_vec_address0' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'tiled_matvec/ypartial_vec_address0' to 0.
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================

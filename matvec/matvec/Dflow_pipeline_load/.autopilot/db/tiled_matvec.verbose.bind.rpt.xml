@@ -1,0 +1,51 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'tiled_matvec'" level="0">
+<item name = "Date">Mon Jun  1 11:18:30 2020
+</item>
+<item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
+<item name = "Project">matvec</item>
+<item name = "Solution">solution2</item>
+<item name = "Product family">virtex7</item>
+<item name = "Target device">xc7vx485t-ffg1157-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00 ns, 8.035 ns, 1.25 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">23, 26, 0.230 us, 0.260 us, 20, 20, dataflow</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_Loop_memset_y_proc_fu_86">Loop_memset_y_proc, 19, 19, 0.190 us, 0.190 us, 19, 19, none</column>
+<column name="grp_Block_tiled_matvec_s_fu_95">Block_tiled_matvec_s, 1, 4, 10.000 ns, 40.000 ns, 1, 4, none</column>
+<column name="grp_Loop_5_proc_fu_107">Loop_5_proc, 5, 5, 50.000 ns, 50.000 ns, 5, 5, none</column>
+<column name="grp_Loop_1_proc10_fu_115">Loop_1_proc10, 11, 11, 0.110 us, 0.110 us, 11, 11, none</column>
+<column name="call_ln3_tiled_matvec_entry3_fu_125">tiled_matvec_entry3, 0, 0, 0 ns, 0 ns, 0, 0, none</column>
+<column name="call_ln4_tiled_matvec_entry12_fu_132">tiled_matvec_entry12, 0, 0, 0 ns, 0 ns, 0, 0, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

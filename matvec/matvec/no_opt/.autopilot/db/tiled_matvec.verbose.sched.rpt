@@ -1,0 +1,320 @@
+
+
+================================================================
+== Vivado HLS Report for 'tiled_matvec'
+================================================================
+* Date:           Mon Jun  1 11:20:00 2020
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        matvec
+* Solution:       solution1
+* Product family: virtex7
+* Target device:  xc7vx485t-ffg1157-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 7.836 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       28|       30| 0.280 us | 0.300 us |   28|   30|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                       |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |       Loop Name       |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-----------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Loop 1               |        8|        8|         4|          -|          -|     2|    no    |
+        | + tiled_matvec_loadA  |        2|        2|         1|          -|          -|     2|    no    |
+        |- tiled_matvec_loadx   |        2|        2|         1|          -|          -|     2|    no    |
+        |- Loop 3               |       12|       12|         6|          -|          -|     2|    no    |
+        | + Loop 3.1            |        4|        4|         2|          -|          -|     2|    no    |
+        |- Loop 4               |        4|        4|         2|          -|          -|     2|    no    |
+        +-----------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 9
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 4 
+3 --> 3 2 
+4 --> 4 5 
+5 --> 6 8 
+6 --> 7 5 
+7 --> 6 
+8 --> 9 
+9 --> 8 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.18>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecInterface(i32* %xtile_V_vec_1, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str27, i32 0, i32 0, [1 x i8]* @p_str28, [1 x i8]* @p_str29, [1 x i8]* @p_str30, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str31, [1 x i8]* @p_str32)"   --->   Operation 10 'specinterface' 'empty' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%empty_3 = call i32 (...)* @_ssdm_op_SpecInterface(i32* %xtile_V_vec_0, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str21, i32 0, i32 0, [1 x i8]* @p_str22, [1 x i8]* @p_str23, [1 x i8]* @p_str24, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str25, [1 x i8]* @p_str26)"   --->   Operation 11 'specinterface' 'empty_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%empty_4 = call i32 (...)* @_ssdm_op_SpecInterface(i32* %Atile_V_vec_1, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str15, i32 0, i32 0, [1 x i8]* @p_str16, [1 x i8]* @p_str17, [1 x i8]* @p_str18, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str19, [1 x i8]* @p_str20)"   --->   Operation 12 'specinterface' 'empty_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%empty_5 = call i32 (...)* @_ssdm_op_SpecInterface(i32* %Atile_V_vec_0, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str9, i32 0, i32 0, [1 x i8]* @p_str10, [1 x i8]* @p_str11, [1 x i8]* @p_str12, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str13, [1 x i8]* @p_str14)"   --->   Operation 13 'specinterface' 'empty_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %xtile_V_vec_1), !map !20"   --->   Operation 14 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %xtile_V_vec_0), !map !26"   --->   Operation 15 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %Atile_V_vec_1), !map !32"   --->   Operation 16 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %Atile_V_vec_0), !map !36"   --->   Operation 17 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap([8 x i32]* %ypartial), !map !40"   --->   Operation 18 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %i1), !map !46"   --->   Operation 19 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32* %i2), !map !50"   --->   Operation 20 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([13 x i8]* @tiled_matvec_str) nounwind"   --->   Operation 21 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (1.18ns)   --->   "br label %.loopexit1" [matvec.cpp:8]   --->   Operation 22 'br' <Predicate = true> <Delay = 1.18>
+
+State 2 <SV = 1> <Delay = 2.93>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%i_0 = phi i2 [ 0, %0 ], [ %i, %.loopexit1.loopexit ]"   --->   Operation 23 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (0.61ns)   --->   "%icmp_ln8 = icmp eq i2 %i_0, -2" [matvec.cpp:8]   --->   Operation 24 'icmp' 'icmp_ln8' <Predicate = true> <Delay = 0.61> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%empty_6 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2, i64 2, i64 2)"   --->   Operation 25 'speclooptripcount' 'empty_6' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 26 [1/1] (1.00ns)   --->   "%i = add i2 %i_0, 1" [matvec.cpp:8]   --->   Operation 26 'add' 'i' <Predicate = true> <Delay = 1.00> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.63> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 27 [1/1] (0.00ns)   --->   "br i1 %icmp_ln8, label %5, label %1" [matvec.cpp:8]   --->   Operation 27 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 28 [1/1] (2.93ns)   --->   "%empty_7 = call { i32, i32 } @_ssdm_op_Read.ap_fifo.volatile.i32P.i32P(i32* %Atile_V_vec_0, i32* %Atile_V_vec_1)" [matvec.cpp:9]   --->   Operation 28 'read' 'empty_7' <Predicate = (!icmp_ln8)> <Delay = 2.93> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.93> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 0> <FIFO>
+ST_2 : Operation 29 [1/1] (0.00ns)   --->   "%tmp_vec_0 = extractvalue { i32, i32 } %empty_7, 0" [matvec.cpp:9]   --->   Operation 29 'extractvalue' 'tmp_vec_0' <Predicate = (!icmp_ln8)> <Delay = 0.00>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%tmp_vec_1 = extractvalue { i32, i32 } %empty_7, 1" [matvec.cpp:9]   --->   Operation 30 'extractvalue' 'tmp_vec_1' <Predicate = (!icmp_ln8)> <Delay = 0.00>
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%trunc_ln11 = trunc i2 %i_0 to i1" [matvec.cpp:11]   --->   Operation 31 'trunc' 'trunc_ln11' <Predicate = (!icmp_ln8)> <Delay = 0.00>
+ST_2 : Operation 32 [1/1] (1.18ns)   --->   "br label %2" [matvec.cpp:10]   --->   Operation 32 'br' <Predicate = (!icmp_ln8)> <Delay = 1.18>
+ST_2 : Operation 33 [1/1] (0.00ns)   --->   "%i2_read = call i32 @_ssdm_op_Read.ap_auto.i32P(i32* %i2)" [matvec.cpp:17]   --->   Operation 33 'read' 'i2_read' <Predicate = (icmp_ln8)> <Delay = 0.00>
+ST_2 : Operation 34 [1/1] (1.57ns)   --->   "%icmp_ln17 = icmp eq i32 %i2_read, 0" [matvec.cpp:17]   --->   Operation 34 'icmp' 'icmp_ln17' <Predicate = (icmp_ln8)> <Delay = 1.57> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 35 [1/1] (0.00ns)   --->   "br i1 %icmp_ln17, label %6, label %.loopexit" [matvec.cpp:17]   --->   Operation 35 'br' <Predicate = (icmp_ln8)> <Delay = 0.00>
+ST_2 : Operation 36 [1/1] (2.93ns)   --->   "%empty_9 = call { i32, i32 } @_ssdm_op_Read.ap_fifo.volatile.i32P.i32P(i32* %xtile_V_vec_0, i32* %xtile_V_vec_1)" [matvec.cpp:18]   --->   Operation 36 'read' 'empty_9' <Predicate = (icmp_ln8 & icmp_ln17)> <Delay = 2.93> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.93> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 0> <FIFO>
+ST_2 : Operation 37 [1/1] (0.00ns)   --->   "%tmp_vec_0_1 = extractvalue { i32, i32 } %empty_9, 0" [matvec.cpp:18]   --->   Operation 37 'extractvalue' 'tmp_vec_0_1' <Predicate = (icmp_ln8 & icmp_ln17)> <Delay = 0.00>
+ST_2 : Operation 38 [1/1] (0.00ns)   --->   "%tmp_vec_1_1 = extractvalue { i32, i32 } %empty_9, 1" [matvec.cpp:18]   --->   Operation 38 'extractvalue' 'tmp_vec_1_1' <Predicate = (icmp_ln8 & icmp_ln17)> <Delay = 0.00>
+ST_2 : Operation 39 [1/1] (1.18ns)   --->   "br label %7" [matvec.cpp:19]   --->   Operation 39 'br' <Predicate = (icmp_ln8 & icmp_ln17)> <Delay = 1.18>
+
+State 3 <SV = 2> <Delay = 1.00>
+ST_3 : Operation 40 [1/1] (0.00ns)   --->   "%j_0 = phi i2 [ 0, %1 ], [ %j, %4 ]"   --->   Operation 40 'phi' 'j_0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 41 [1/1] (0.61ns)   --->   "%icmp_ln10 = icmp eq i2 %j_0, -2" [matvec.cpp:10]   --->   Operation 41 'icmp' 'icmp_ln10' <Predicate = true> <Delay = 0.61> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 42 [1/1] (0.00ns)   --->   "%empty_8 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2, i64 2, i64 2)"   --->   Operation 42 'speclooptripcount' 'empty_8' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 43 [1/1] (1.00ns)   --->   "%j = add i2 %j_0, 1" [matvec.cpp:10]   --->   Operation 43 'add' 'j' <Predicate = true> <Delay = 1.00> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.63> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 44 [1/1] (0.00ns)   --->   "br i1 %icmp_ln10, label %.loopexit1.loopexit, label %3" [matvec.cpp:10]   --->   Operation 44 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 45 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([19 x i8]* @p_str) nounwind" [matvec.cpp:10]   --->   Operation 45 'specloopname' <Predicate = (!icmp_ln10)> <Delay = 0.00>
+ST_3 : Operation 46 [1/1] (0.00ns)   --->   "%trunc_ln11_1 = trunc i2 %j_0 to i1" [matvec.cpp:11]   --->   Operation 46 'trunc' 'trunc_ln11_1' <Predicate = (!icmp_ln10)> <Delay = 0.00>
+ST_3 : Operation 47 [1/1] (0.61ns)   --->   "%select_ln11 = select i1 %trunc_ln11_1, i32 %tmp_vec_1, i32 %tmp_vec_0" [matvec.cpp:11]   --->   Operation 47 'select' 'select_ln11' <Predicate = (!icmp_ln10)> <Delay = 0.61> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_3 : Operation 48 [1/1] (0.00ns)   --->   "br i1 %trunc_ln11, label %branch11, label %branch10" [matvec.cpp:11]   --->   Operation 48 'br' <Predicate = (!icmp_ln10)> <Delay = 0.00>
+ST_3 : Operation 49 [1/1] (0.00ns)   --->   "br i1 %trunc_ln11_1, label %branch110, label %branch05" [matvec.cpp:11]   --->   Operation 49 'br' <Predicate = (!icmp_ln10 & !trunc_ln11)> <Delay = 0.00>
+ST_3 : Operation 50 [1/1] (0.00ns)   --->   "store i32 %select_ln11, i32* @A_0_0, align 4" [matvec.cpp:11]   --->   Operation 50 'store' <Predicate = (!icmp_ln10 & !trunc_ln11 & !trunc_ln11_1)> <Delay = 0.00>
+ST_3 : Operation 51 [1/1] (0.00ns)   --->   "br label %branch104" [matvec.cpp:11]   --->   Operation 51 'br' <Predicate = (!icmp_ln10 & !trunc_ln11 & !trunc_ln11_1)> <Delay = 0.00>
+ST_3 : Operation 52 [1/1] (0.00ns)   --->   "store i32 %select_ln11, i32* @A_0_1, align 4" [matvec.cpp:11]   --->   Operation 52 'store' <Predicate = (!icmp_ln10 & !trunc_ln11 & trunc_ln11_1)> <Delay = 0.00>
+ST_3 : Operation 53 [1/1] (0.00ns)   --->   "br label %branch104" [matvec.cpp:11]   --->   Operation 53 'br' <Predicate = (!icmp_ln10 & !trunc_ln11 & trunc_ln11_1)> <Delay = 0.00>
+ST_3 : Operation 54 [1/1] (0.00ns)   --->   "br label %4" [matvec.cpp:11]   --->   Operation 54 'br' <Predicate = (!icmp_ln10 & !trunc_ln11)> <Delay = 0.00>
+ST_3 : Operation 55 [1/1] (0.00ns)   --->   "br i1 %trunc_ln11_1, label %branch525, label %branch424" [matvec.cpp:11]   --->   Operation 55 'br' <Predicate = (!icmp_ln10 & trunc_ln11)> <Delay = 0.00>
+ST_3 : Operation 56 [1/1] (0.00ns)   --->   "store i32 %select_ln11, i32* @A_1_0, align 4" [matvec.cpp:11]   --->   Operation 56 'store' <Predicate = (!icmp_ln10 & trunc_ln11 & !trunc_ln11_1)> <Delay = 0.00>
+ST_3 : Operation 57 [1/1] (0.00ns)   --->   "br label %branch1123" [matvec.cpp:11]   --->   Operation 57 'br' <Predicate = (!icmp_ln10 & trunc_ln11 & !trunc_ln11_1)> <Delay = 0.00>
+ST_3 : Operation 58 [1/1] (0.00ns)   --->   "store i32 %select_ln11, i32* @A_1_1, align 4" [matvec.cpp:11]   --->   Operation 58 'store' <Predicate = (!icmp_ln10 & trunc_ln11 & trunc_ln11_1)> <Delay = 0.00>
+ST_3 : Operation 59 [1/1] (0.00ns)   --->   "br label %branch1123" [matvec.cpp:11]   --->   Operation 59 'br' <Predicate = (!icmp_ln10 & trunc_ln11 & trunc_ln11_1)> <Delay = 0.00>
+ST_3 : Operation 60 [1/1] (0.00ns)   --->   "br label %4" [matvec.cpp:11]   --->   Operation 60 'br' <Predicate = (!icmp_ln10 & trunc_ln11)> <Delay = 0.00>
+ST_3 : Operation 61 [1/1] (0.00ns)   --->   "br label %2" [matvec.cpp:10]   --->   Operation 61 'br' <Predicate = (!icmp_ln10)> <Delay = 0.00>
+ST_3 : Operation 62 [1/1] (0.00ns)   --->   "br label %.loopexit1"   --->   Operation 62 'br' <Predicate = (icmp_ln10)> <Delay = 0.00>
+
+State 4 <SV = 2> <Delay = 1.18>
+ST_4 : Operation 63 [1/1] (0.00ns)   --->   "%i3_0 = phi i2 [ 0, %6 ], [ %i_3, %9 ]"   --->   Operation 63 'phi' 'i3_0' <Predicate = (icmp_ln17)> <Delay = 0.00>
+ST_4 : Operation 64 [1/1] (0.61ns)   --->   "%icmp_ln19 = icmp eq i2 %i3_0, -2" [matvec.cpp:19]   --->   Operation 64 'icmp' 'icmp_ln19' <Predicate = (icmp_ln17)> <Delay = 0.61> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 65 [1/1] (0.00ns)   --->   "%empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2, i64 2, i64 2)"   --->   Operation 65 'speclooptripcount' 'empty_10' <Predicate = (icmp_ln17)> <Delay = 0.00>
+ST_4 : Operation 66 [1/1] (1.00ns)   --->   "%i_3 = add i2 %i3_0, 1" [matvec.cpp:19]   --->   Operation 66 'add' 'i_3' <Predicate = (icmp_ln17)> <Delay = 1.00> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.63> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 67 [1/1] (0.00ns)   --->   "br i1 %icmp_ln19, label %.loopexit.loopexit, label %8" [matvec.cpp:19]   --->   Operation 67 'br' <Predicate = (icmp_ln17)> <Delay = 0.00>
+ST_4 : Operation 68 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([19 x i8]* @p_str1) nounwind" [matvec.cpp:19]   --->   Operation 68 'specloopname' <Predicate = (icmp_ln17 & !icmp_ln19)> <Delay = 0.00>
+ST_4 : Operation 69 [1/1] (0.00ns)   --->   "%trunc_ln20 = trunc i2 %i3_0 to i1" [matvec.cpp:20]   --->   Operation 69 'trunc' 'trunc_ln20' <Predicate = (icmp_ln17 & !icmp_ln19)> <Delay = 0.00>
+ST_4 : Operation 70 [1/1] (0.61ns)   --->   "%select_ln20 = select i1 %trunc_ln20, i32 %tmp_vec_1_1, i32 %tmp_vec_0_1" [matvec.cpp:20]   --->   Operation 70 'select' 'select_ln20' <Predicate = (icmp_ln17 & !icmp_ln19)> <Delay = 0.61> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 71 [1/1] (0.00ns)   --->   "br i1 %trunc_ln20, label %branch7, label %branch6" [matvec.cpp:20]   --->   Operation 71 'br' <Predicate = (icmp_ln17 & !icmp_ln19)> <Delay = 0.00>
+ST_4 : Operation 72 [1/1] (0.00ns)   --->   "store i32 %select_ln20, i32* @x_0, align 4" [matvec.cpp:20]   --->   Operation 72 'store' <Predicate = (icmp_ln17 & !icmp_ln19 & !trunc_ln20)> <Delay = 0.00>
+ST_4 : Operation 73 [1/1] (0.00ns)   --->   "br label %9" [matvec.cpp:20]   --->   Operation 73 'br' <Predicate = (icmp_ln17 & !icmp_ln19 & !trunc_ln20)> <Delay = 0.00>
+ST_4 : Operation 74 [1/1] (0.00ns)   --->   "store i32 %select_ln20, i32* @x_1, align 4" [matvec.cpp:20]   --->   Operation 74 'store' <Predicate = (icmp_ln17 & !icmp_ln19 & trunc_ln20)> <Delay = 0.00>
+ST_4 : Operation 75 [1/1] (0.00ns)   --->   "br label %9" [matvec.cpp:20]   --->   Operation 75 'br' <Predicate = (icmp_ln17 & !icmp_ln19 & trunc_ln20)> <Delay = 0.00>
+ST_4 : Operation 76 [1/1] (0.00ns)   --->   "br label %7" [matvec.cpp:19]   --->   Operation 76 'br' <Predicate = (icmp_ln17 & !icmp_ln19)> <Delay = 0.00>
+ST_4 : Operation 77 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 77 'br' <Predicate = (icmp_ln17 & icmp_ln19)> <Delay = 0.00>
+ST_4 : Operation 78 [1/1] (0.00ns)   --->   "%y_1 = alloca i32"   --->   Operation 78 'alloca' 'y_1' <Predicate = (icmp_ln19) | (!icmp_ln17)> <Delay = 0.00>
+ST_4 : Operation 79 [1/1] (0.00ns)   --->   "%y_1_3 = alloca i32"   --->   Operation 79 'alloca' 'y_1_3' <Predicate = (icmp_ln19) | (!icmp_ln17)> <Delay = 0.00>
+ST_4 : Operation 80 [1/1] (0.00ns)   --->   "%A_1_0_load = load i32* @A_1_0, align 4" [matvec.cpp:28]   --->   Operation 80 'load' 'A_1_0_load' <Predicate = (icmp_ln19) | (!icmp_ln17)> <Delay = 0.00>
+ST_4 : Operation 81 [1/1] (0.00ns)   --->   "%A_1_1_load = load i32* @A_1_1, align 4" [matvec.cpp:28]   --->   Operation 81 'load' 'A_1_1_load' <Predicate = (icmp_ln19) | (!icmp_ln17)> <Delay = 0.00>
+ST_4 : Operation 82 [1/1] (0.00ns)   --->   "%x_0_load = load i32* @x_0, align 4" [matvec.cpp:28]   --->   Operation 82 'load' 'x_0_load' <Predicate = (icmp_ln19) | (!icmp_ln17)> <Delay = 0.00>
+ST_4 : Operation 83 [1/1] (0.00ns)   --->   "%x_1_load = load i32* @x_1, align 4" [matvec.cpp:28]   --->   Operation 83 'load' 'x_1_load' <Predicate = (icmp_ln19) | (!icmp_ln17)> <Delay = 0.00>
+ST_4 : Operation 84 [1/1] (0.00ns)   --->   "%A_0_0_load = load i32* @A_0_0, align 4" [matvec.cpp:28]   --->   Operation 84 'load' 'A_0_0_load' <Predicate = (icmp_ln19) | (!icmp_ln17)> <Delay = 0.00>
+ST_4 : Operation 85 [1/1] (0.00ns)   --->   "%A_0_1_load = load i32* @A_0_1, align 4" [matvec.cpp:28]   --->   Operation 85 'load' 'A_0_1_load' <Predicate = (icmp_ln19) | (!icmp_ln17)> <Delay = 0.00>
+ST_4 : Operation 86 [1/1] (1.18ns)   --->   "store i32 0, i32* %y_1_3" [matvec.cpp:26]   --->   Operation 86 'store' <Predicate = (icmp_ln19) | (!icmp_ln17)> <Delay = 1.18>
+ST_4 : Operation 87 [1/1] (1.18ns)   --->   "store i32 0, i32* %y_1" [matvec.cpp:26]   --->   Operation 87 'store' <Predicate = (icmp_ln19) | (!icmp_ln17)> <Delay = 1.18>
+ST_4 : Operation 88 [1/1] (1.18ns)   --->   "br label %.loopexit3" [matvec.cpp:26]   --->   Operation 88 'br' <Predicate = (icmp_ln19) | (!icmp_ln17)> <Delay = 1.18>
+
+State 5 <SV = 3> <Delay = 1.18>
+ST_5 : Operation 89 [1/1] (0.00ns)   --->   "%i4_0 = phi i2 [ 0, %.loopexit ], [ %i_1, %.loopexit3.loopexit ]"   --->   Operation 89 'phi' 'i4_0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 90 [1/1] (0.61ns)   --->   "%icmp_ln26 = icmp eq i2 %i4_0, -2" [matvec.cpp:26]   --->   Operation 90 'icmp' 'icmp_ln26' <Predicate = true> <Delay = 0.61> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 91 [1/1] (0.00ns)   --->   "%empty_11 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2, i64 2, i64 2)"   --->   Operation 91 'speclooptripcount' 'empty_11' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 92 [1/1] (1.00ns)   --->   "%i_1 = add i2 %i4_0, 1" [matvec.cpp:26]   --->   Operation 92 'add' 'i_1' <Predicate = true> <Delay = 1.00> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.63> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 93 [1/1] (0.00ns)   --->   "br i1 %icmp_ln26, label %.preheader.preheader, label %.preheader2.preheader" [matvec.cpp:26]   --->   Operation 93 'br' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 94 [1/1] (0.00ns)   --->   "%trunc_ln28 = trunc i2 %i4_0 to i1" [matvec.cpp:28]   --->   Operation 94 'trunc' 'trunc_ln28' <Predicate = (!icmp_ln26)> <Delay = 0.00>
+ST_5 : Operation 95 [1/1] (1.18ns)   --->   "br label %.preheader2" [matvec.cpp:27]   --->   Operation 95 'br' <Predicate = (!icmp_ln26)> <Delay = 1.18>
+ST_5 : Operation 96 [1/1] (0.00ns)   --->   "%shl_ln35 = shl i32 %i2_read, 1" [matvec.cpp:35]   --->   Operation 96 'shl' 'shl_ln35' <Predicate = (icmp_ln26)> <Delay = 0.00>
+ST_5 : Operation 97 [1/1] (1.18ns)   --->   "br label %.preheader" [matvec.cpp:33]   --->   Operation 97 'br' <Predicate = (icmp_ln26)> <Delay = 1.18>
+
+State 6 <SV = 4> <Delay = 7.83>
+ST_6 : Operation 98 [1/1] (0.00ns)   --->   "%j5_0 = phi i2 [ 0, %.preheader2.preheader ], [ %j_1, %_ifconv ]"   --->   Operation 98 'phi' 'j5_0' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 99 [1/1] (0.61ns)   --->   "%icmp_ln27 = icmp eq i2 %j5_0, -2" [matvec.cpp:27]   --->   Operation 99 'icmp' 'icmp_ln27' <Predicate = true> <Delay = 0.61> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 100 [1/1] (0.00ns)   --->   "%empty_12 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2, i64 2, i64 2)"   --->   Operation 100 'speclooptripcount' 'empty_12' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 101 [1/1] (1.00ns)   --->   "%j_1 = add i2 %j5_0, 1" [matvec.cpp:27]   --->   Operation 101 'add' 'j_1' <Predicate = true> <Delay = 1.00> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.63> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 102 [1/1] (0.00ns)   --->   "br i1 %icmp_ln27, label %.loopexit3.loopexit, label %_ifconv" [matvec.cpp:27]   --->   Operation 102 'br' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 103 [1/1] (0.00ns)   --->   "%trunc_ln28_1 = trunc i2 %j5_0 to i1" [matvec.cpp:28]   --->   Operation 103 'trunc' 'trunc_ln28_1' <Predicate = (!icmp_ln27)> <Delay = 0.00>
+ST_6 : Operation 104 [1/1] (0.00ns) (grouped into LUT with out node select_ln28_4)   --->   "%select_ln28_1 = select i1 %trunc_ln28_1, i32 %A_1_1_load, i32 %A_1_0_load" [matvec.cpp:28]   --->   Operation 104 'select' 'select_ln28_1' <Predicate = (!icmp_ln27 & trunc_ln28)> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 105 [1/1] (0.61ns) (out node of the LUT)   --->   "%select_ln28 = select i1 %trunc_ln28_1, i32 %A_0_1_load, i32 %A_0_0_load" [matvec.cpp:28]   --->   Operation 105 'select' 'select_ln28' <Predicate = (!icmp_ln27 & !trunc_ln28)> <Delay = 0.61> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 106 [1/1] (0.61ns) (out node of the LUT)   --->   "%select_ln28_4 = select i1 %trunc_ln28, i32 %select_ln28_1, i32 %select_ln28" [matvec.cpp:28]   --->   Operation 106 'select' 'select_ln28_4' <Predicate = (!icmp_ln27)> <Delay = 0.61> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 107 [1/1] (0.61ns)   --->   "%select_ln28_2 = select i1 %trunc_ln28_1, i32 %x_1_load, i32 %x_0_load" [matvec.cpp:28]   --->   Operation 107 'select' 'select_ln28_2' <Predicate = (!icmp_ln27)> <Delay = 0.61> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_6 : Operation 108 [1/1] (6.61ns)   --->   "%mul_ln28 = mul nsw i32 %select_ln28_4, %select_ln28_2" [matvec.cpp:28]   --->   Operation 108 'mul' 'mul_ln28' <Predicate = (!icmp_ln27)> <Delay = 6.61> <Core = "Mul">   --->   Core 16 'Mul' <Latency = 0> <II = 1> <Delay = 6.61> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 109 [1/1] (0.00ns)   --->   "br label %.loopexit3"   --->   Operation 109 'br' <Predicate = (icmp_ln27)> <Delay = 0.00>
+
+State 7 <SV = 5> <Delay = 3.42>
+ST_7 : Operation 110 [1/1] (0.00ns)   --->   "%y_1_load_1 = load i32* %y_1" [matvec.cpp:28]   --->   Operation 110 'load' 'y_1_load_1' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 111 [1/1] (0.00ns)   --->   "%y_1_3_load_1 = load i32* %y_1_3" [matvec.cpp:28]   --->   Operation 111 'load' 'y_1_3_load_1' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 112 [1/1] (0.00ns) (grouped into LUT with out node y_0)   --->   "%select_ln28_3 = select i1 %trunc_ln28, i32 %y_1_3_load_1, i32 %y_1_load_1" [matvec.cpp:28]   --->   Operation 112 'select' 'select_ln28_3' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_7 : Operation 113 [1/1] (1.63ns) (out node of the LUT)   --->   "%y_0 = add nsw i32 %mul_ln28, %select_ln28_3" [matvec.cpp:28]   --->   Operation 113 'add' 'y_0' <Predicate = true> <Delay = 1.63> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.63> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 114 [1/1] (0.61ns)   --->   "%y_1_5 = select i1 %trunc_ln28, i32 %y_0, i32 %y_1_3_load_1" [matvec.cpp:28]   --->   Operation 114 'select' 'y_1_5' <Predicate = true> <Delay = 0.61> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_7 : Operation 115 [1/1] (0.61ns)   --->   "%y_1_6 = select i1 %trunc_ln28, i32 %y_1_load_1, i32 %y_0" [matvec.cpp:28]   --->   Operation 115 'select' 'y_1_6' <Predicate = true> <Delay = 0.61> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_7 : Operation 116 [1/1] (1.18ns)   --->   "store i32 %y_1_5, i32* %y_1_3" [matvec.cpp:27]   --->   Operation 116 'store' <Predicate = true> <Delay = 1.18>
+ST_7 : Operation 117 [1/1] (1.18ns)   --->   "store i32 %y_1_6, i32* %y_1" [matvec.cpp:27]   --->   Operation 117 'store' <Predicate = true> <Delay = 1.18>
+ST_7 : Operation 118 [1/1] (0.00ns)   --->   "br label %.preheader2" [matvec.cpp:27]   --->   Operation 118 'br' <Predicate = true> <Delay = 0.00>
+
+State 8 <SV = 4> <Delay = 3.05>
+ST_8 : Operation 119 [1/1] (0.00ns)   --->   "%i6_0 = phi i2 [ %i_4, %10 ], [ 0, %.preheader.preheader ]"   --->   Operation 119 'phi' 'i6_0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 120 [1/1] (0.00ns)   --->   "%zext_ln33 = zext i2 %i6_0 to i32" [matvec.cpp:33]   --->   Operation 120 'zext' 'zext_ln33' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 121 [1/1] (0.61ns)   --->   "%icmp_ln33 = icmp eq i2 %i6_0, -2" [matvec.cpp:33]   --->   Operation 121 'icmp' 'icmp_ln33' <Predicate = true> <Delay = 0.61> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 122 [1/1] (0.00ns)   --->   "%empty_13 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2, i64 2, i64 2)"   --->   Operation 122 'speclooptripcount' 'empty_13' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 123 [1/1] (1.00ns)   --->   "%i_4 = add i2 %i6_0, 1" [matvec.cpp:33]   --->   Operation 123 'add' 'i_4' <Predicate = true> <Delay = 1.00> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.63> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 124 [1/1] (0.00ns)   --->   "br i1 %icmp_ln33, label %11, label %10" [matvec.cpp:33]   --->   Operation 124 'br' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 125 [1/1] (1.63ns)   --->   "%add_ln35 = add nsw i32 %zext_ln33, %shl_ln35" [matvec.cpp:35]   --->   Operation 125 'add' 'add_ln35' <Predicate = (!icmp_ln33)> <Delay = 1.63> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.63> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 126 [1/1] (0.00ns)   --->   "%sext_ln35 = sext i32 %add_ln35 to i64" [matvec.cpp:35]   --->   Operation 126 'sext' 'sext_ln35' <Predicate = (!icmp_ln33)> <Delay = 0.00>
+ST_8 : Operation 127 [1/1] (0.00ns)   --->   "%ypartial_addr = getelementptr [8 x i32]* %ypartial, i64 0, i64 %sext_ln35" [matvec.cpp:35]   --->   Operation 127 'getelementptr' 'ypartial_addr' <Predicate = (!icmp_ln33)> <Delay = 0.00>
+ST_8 : Operation 128 [2/2] (1.42ns)   --->   "%ypartial_load = load i32* %ypartial_addr, align 4" [matvec.cpp:35]   --->   Operation 128 'load' 'ypartial_load' <Predicate = (!icmp_ln33)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_8 : Operation 129 [1/1] (0.00ns)   --->   "ret void" [matvec.cpp:38]   --->   Operation 129 'ret' <Predicate = (icmp_ln33)> <Delay = 0.00>
+
+State 9 <SV = 5> <Delay = 4.48>
+ST_9 : Operation 130 [1/1] (0.00ns)   --->   "%y_1_load = load i32* %y_1" [matvec.cpp:35]   --->   Operation 130 'load' 'y_1_load' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 131 [1/1] (0.00ns)   --->   "%y_1_3_load = load i32* %y_1_3" [matvec.cpp:35]   --->   Operation 131 'load' 'y_1_3_load' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 132 [1/1] (0.00ns) (grouped into LUT with out node add_ln35_1)   --->   "%trunc_ln35 = trunc i2 %i6_0 to i1" [matvec.cpp:35]   --->   Operation 132 'trunc' 'trunc_ln35' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 133 [1/1] (0.00ns) (grouped into LUT with out node add_ln35_1)   --->   "%select_ln35 = select i1 %trunc_ln35, i32 %y_1_3_load, i32 %y_1_load" [matvec.cpp:35]   --->   Operation 133 'select' 'select_ln35' <Predicate = true> <Delay = 0.00> <Core = "Sel">   --->   Core 26 'Sel' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_9 : Operation 134 [1/2] (1.42ns)   --->   "%ypartial_load = load i32* %ypartial_addr, align 4" [matvec.cpp:35]   --->   Operation 134 'load' 'ypartial_load' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_9 : Operation 135 [1/1] (1.63ns) (out node of the LUT)   --->   "%add_ln35_1 = add nsw i32 %ypartial_load, %select_ln35" [matvec.cpp:35]   --->   Operation 135 'add' 'add_ln35_1' <Predicate = true> <Delay = 1.63> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.63> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 136 [1/1] (1.42ns)   --->   "store i32 %add_ln35_1, i32* %ypartial_addr, align 4" [matvec.cpp:35]   --->   Operation 136 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_9 : Operation 137 [1/1] (0.00ns)   --->   "br label %.preheader" [matvec.cpp:33]   --->   Operation 137 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.18ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', matvec.cpp:8) [29]  (1.18 ns)
+
+ <State 2>: 2.93ns
+The critical path consists of the following:
+	fifo read on port 'Atile_V_vec_0' (matvec.cpp:9) [35]  (2.93 ns)
+
+ <State 3>: 1.01ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', matvec.cpp:10) [41]  (0 ns)
+	'add' operation ('j', matvec.cpp:10) [44]  (1.01 ns)
+
+ <State 4>: 1.18ns
+The critical path consists of the following:
+	'alloca' operation ('y[1]') [106]  (0 ns)
+	'store' operation ('store_ln26', matvec.cpp:26) of constant 0 on local variable 'y[1]' [115]  (1.18 ns)
+
+ <State 5>: 1.18ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('j') with incoming values : ('j', matvec.cpp:27) [127]  (1.18 ns)
+
+ <State 6>: 7.84ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', matvec.cpp:27) [127]  (0 ns)
+	'select' operation ('select_ln28', matvec.cpp:28) [137]  (0.613 ns)
+	'select' operation ('select_ln28_4', matvec.cpp:28) [138]  (0.613 ns)
+	'mul' operation ('mul_ln28', matvec.cpp:28) [140]  (6.61 ns)
+
+ <State 7>: 3.43ns
+The critical path consists of the following:
+	'load' operation ('y_1_load_1', matvec.cpp:28) on local variable 'y[1]' [133]  (0 ns)
+	'select' operation ('select_ln28_3', matvec.cpp:28) [141]  (0 ns)
+	'add' operation ('y[0]', matvec.cpp:28) [142]  (1.63 ns)
+	'select' operation ('y[1]', matvec.cpp:28) [143]  (0.613 ns)
+	'store' operation ('store_ln27', matvec.cpp:27) of variable 'y[1]', matvec.cpp:28 on local variable 'y[1]' [145]  (1.18 ns)
+
+ <State 8>: 3.06ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', matvec.cpp:33) [154]  (0 ns)
+	'add' operation ('add_ln35', matvec.cpp:35) [165]  (1.63 ns)
+	'getelementptr' operation ('ypartial_addr', matvec.cpp:35) [167]  (0 ns)
+	'load' operation ('ypartial_load', matvec.cpp:35) on array 'ypartial' [168]  (1.43 ns)
+
+ <State 9>: 4.48ns
+The critical path consists of the following:
+	'load' operation ('ypartial_load', matvec.cpp:35) on array 'ypartial' [168]  (1.43 ns)
+	'add' operation ('add_ln35_1', matvec.cpp:35) [169]  (1.63 ns)
+	'store' operation ('store_ln35', matvec.cpp:35) of variable 'add_ln35_1', matvec.cpp:35 on array 'ypartial' [170]  (1.43 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

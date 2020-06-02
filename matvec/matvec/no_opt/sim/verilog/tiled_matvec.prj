@@ -1,0 +1,9 @@
+sv work "glbl.v"
+sv xil_defaultlib "AESL_autofifo_xtile_V_vec_0.v"
+sv xil_defaultlib "AESL_autofifo_Atile_V_vec_0.v"
+sv xil_defaultlib "AESL_autofifo_xtile_V_vec_1.v"
+sv xil_defaultlib "tiled_matvec.v"
+sv xil_defaultlib "tiled_matvec.autotb.v"
+sv xil_defaultlib "AESL_autofifo_Atile_V_vec_1.v"
+sv xil_defaultlib "AESL_automem_ypartial.v"
+

@@ -1,0 +1,160 @@
+
+
+================================================================
+== Vivado HLS Report for 'Block_tiled_matvec_s'
+================================================================
+* Date:           Mon Jun  1 11:18:30 2020
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        matvec
+* Solution:       solution2
+* Product family: virtex7
+* Target device:  xc7vx485t-ffg1157-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 5.118 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max    | min | max |   Type  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |        1|        4| 10.000 ns | 40.000 ns |    1|    4|   none  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                      |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |       Loop Name      |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- tiled_matvec_loadx  |        2|        2|         1|          1|          1|     2|    yes   |
+        +----------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|      73|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      -|       -|       -|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|      75|    -|
+|Register         |        -|      -|     102|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      0|     102|     148|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |     2060|   2800|  607200|  303600|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +--------------------------+----------+-------+---+----+------------+------------+
+    |       Variable Name      | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------------+----------+-------+---+----+------------+------------+
+    |i_fu_119_p2               |     +    |      0|  0|  10|           2|           1|
+    |io_acc_block_signal_op10  |    and   |      0|  0|   2|           1|           1|
+    |icmp_ln17_fu_99_p2        |   icmp   |      0|  0|  18|          32|           1|
+    |icmp_ln19_fu_113_p2       |   icmp   |      0|  0|   9|           2|           3|
+    |ap_block_state1           |    or    |      0|  0|   2|           1|           1|
+    |x_d0                      |  select  |      0|  0|  32|           1|          32|
+    +--------------------------+----------+-------+---+----+------------+------------+
+    |Total                     |          |      0|  0|  73|          39|          39|
+    +--------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------+----+-----------+-----+-----------+
+    |          Name         | LUT| Input Size| Bits| Total Bits|
+    +-----------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm              |  21|          4|    1|          4|
+    |ap_done                |   9|          2|    1|          2|
+    |i2_blk_n               |   9|          2|    1|          2|
+    |i2_load_out_out_blk_n  |   9|          2|    1|          2|
+    |i3_0_i_i_reg_88        |   9|          2|    2|          4|
+    |xtile_V_vec_0_blk_n    |   9|          2|    1|          2|
+    |xtile_V_vec_1_blk_n    |   9|          2|    1|          2|
+    +-----------------------+----+-----------+-----+-----------+
+    |Total                  |  75|         16|    8|         18|
+    +-----------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------+----+----+-----+-----------+
+    |        Name       | FF | LUT| Bits| Const Bits|
+    +-------------------+----+----+-----+-----------+
+    |ap_CS_fsm          |   3|   0|    3|          0|
+    |ap_done_reg        |   1|   0|    1|          0|
+    |i2_read_reg_141    |  32|   0|   32|          0|
+    |i3_0_i_i_reg_88    |   2|   0|    2|          0|
+    |tmp_vec_0_reg_150  |  32|   0|   32|          0|
+    |tmp_vec_1_reg_155  |  32|   0|   32|          0|
+    +-------------------+----+----+-----+-----------+
+    |Total              | 102|   0|  102|          0|
+    +-------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------+-----+-----+------------+----------------------+--------------+
+|        RTL Ports       | Dir | Bits|  Protocol  |     Source Object    |    C Type    |
++------------------------+-----+-----+------------+----------------------+--------------+
+|ap_clk                  |  in |    1| ap_ctrl_hs | Block_tiled_matvec_. | return value |
+|ap_rst                  |  in |    1| ap_ctrl_hs | Block_tiled_matvec_. | return value |
+|ap_start                |  in |    1| ap_ctrl_hs | Block_tiled_matvec_. | return value |
+|ap_done                 | out |    1| ap_ctrl_hs | Block_tiled_matvec_. | return value |
+|ap_continue             |  in |    1| ap_ctrl_hs | Block_tiled_matvec_. | return value |
+|ap_idle                 | out |    1| ap_ctrl_hs | Block_tiled_matvec_. | return value |
+|ap_ready                | out |    1| ap_ctrl_hs | Block_tiled_matvec_. | return value |
+|i2_dout                 |  in |   32|   ap_fifo  |          i2          |    pointer   |
+|i2_empty_n              |  in |    1|   ap_fifo  |          i2          |    pointer   |
+|i2_read                 | out |    1|   ap_fifo  |          i2          |    pointer   |
+|xtile_V_vec_0_dout      |  in |   32|   ap_fifo  |     xtile_V_vec_0    |    pointer   |
+|xtile_V_vec_0_empty_n   |  in |    1|   ap_fifo  |     xtile_V_vec_0    |    pointer   |
+|xtile_V_vec_0_read      | out |    1|   ap_fifo  |     xtile_V_vec_0    |    pointer   |
+|xtile_V_vec_1_dout      |  in |   32|   ap_fifo  |     xtile_V_vec_1    |    pointer   |
+|xtile_V_vec_1_empty_n   |  in |    1|   ap_fifo  |     xtile_V_vec_1    |    pointer   |
+|xtile_V_vec_1_read      | out |    1|   ap_fifo  |     xtile_V_vec_1    |    pointer   |
+|x_address0              | out |    1|  ap_memory |           x          |     array    |
+|x_ce0                   | out |    1|  ap_memory |           x          |     array    |
+|x_we0                   | out |    1|  ap_memory |           x          |     array    |
+|x_d0                    | out |   32|  ap_memory |           x          |     array    |
+|i2_load_out_out_din     | out |   32|   ap_fifo  |    i2_load_out_out   |    pointer   |
+|i2_load_out_out_full_n  |  in |    1|   ap_fifo  |    i2_load_out_out   |    pointer   |
+|i2_load_out_out_write   | out |    1|   ap_fifo  |    i2_load_out_out   |    pointer   |
++------------------------+-----+-----+------------+----------------------+--------------+
+

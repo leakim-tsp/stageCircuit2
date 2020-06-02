@@ -1,0 +1,44 @@
+#-----------------------------------------------------------
+# xsim v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Mon Jun  1 11:31:13 2020
+# Process ID: 18773
+# Current directory: /home/mickael/stageFGPA/TP/matvec/matvec/solution3/sim/verilog
+# Command line: xsim -mode tcl -source {xsim.dir/tiled_matvec/xsim_script.tcl}
+# Log file: /home/mickael/stageFGPA/TP/matvec/matvec/solution3/sim/verilog/xsim.log
+# Journal file: /home/mickael/stageFGPA/TP/matvec/matvec/solution3/sim/verilog/xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/tiled_matvec/xsim_script.tcl
+# xsim {tiled_matvec} -autoloadwcfg -tclbatch {tiled_matvec.tcl}
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source tiled_matvec.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 16 [0.00%] @ "125000"
+// RTL Simulation : 1 / 16 [100.00%] @ "405000"
+// RTL Simulation : 2 / 16 [100.00%] @ "645000"
+// RTL Simulation : 3 / 16 [100.00%] @ "885000"
+// RTL Simulation : 4 / 16 [100.00%] @ "1125000"
+// RTL Simulation : 5 / 16 [100.00%] @ "1395000"
+// RTL Simulation : 6 / 16 [100.00%] @ "1635000"
+// RTL Simulation : 7 / 16 [100.00%] @ "1875000"
+// RTL Simulation : 8 / 16 [100.00%] @ "2115000"
+// RTL Simulation : 9 / 16 [100.00%] @ "2385000"
+// RTL Simulation : 10 / 16 [100.00%] @ "2625000"
+// RTL Simulation : 11 / 16 [100.00%] @ "2865000"
+// RTL Simulation : 12 / 16 [100.00%] @ "3105000"
+// RTL Simulation : 13 / 16 [100.00%] @ "3375000"
+// RTL Simulation : 14 / 16 [100.00%] @ "3615000"
+// RTL Simulation : 15 / 16 [100.00%] @ "3855000"
+// RTL Simulation : 16 / 16 [100.00%] @ "4095000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 4135 ns : File "/home/mickael/stageFGPA/TP/matvec/matvec/solution3/sim/verilog/tiled_matvec.autotb.v" Line 514
+## quit
+INFO: [Common 17-206] Exiting xsim at Mon Jun  1 11:31:29 2020...

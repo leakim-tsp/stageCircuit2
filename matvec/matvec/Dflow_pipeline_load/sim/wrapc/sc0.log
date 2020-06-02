@@ -1,0 +1,5 @@
+   Build using "/tools/Xilinx/Vivado/2019.2/tps/lnx64/gcc-6.2.0/bin/g++"
+   Compiling apatb_tiled_matvec.cpp
+   Compiling matvec.cpp_pre.cpp.tb.cpp
+   Compiling matvec_testbecnch.cpp_pre.cpp.tb.cpp
+   Generating cosim.tv.exe

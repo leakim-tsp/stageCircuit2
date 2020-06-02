@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+  <sourceFile>
+    <directive functionName="tiled_matvec" label="tiled_matvec_compute" functionLabel="">
+      <pragma name="PIPELINE">
+        <option name="II" value="1"/>
+      </pragma>
+    </directive>
+  </sourceFile>
+  <sourceFile name="matvec.cpp">
+    <directive functionName="tiled_matvec" label=" " functionLabel=" ">
+      <pragma name="DATAFLOW"/>
+    </directive>
+  </sourceFile>
+</AutoPilot:ProjectResources>

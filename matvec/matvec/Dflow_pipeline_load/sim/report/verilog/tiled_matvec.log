@@ -1,0 +1,171 @@
+INFO: [COSIM-47] Using XSIM for RTL simulation.
+INFO: [COSIM-14] Instrumenting C test bench ...
+   Build using "/tools/Xilinx/Vivado/2019.2/tps/lnx64/gcc-6.2.0/bin/g++"
+   Compiling apatb_tiled_matvec.cpp
+   Compiling matvec.cpp_pre.cpp.tb.cpp
+   Compiling matvec_testbecnch.cpp_pre.cpp.tb.cpp
+   Generating cosim.tv.exe
+INFO: [COSIM-302] Starting C TB testing ... 
+INFO: [COSIM-333] Generating C post check test bench ...
+INFO: [COSIM-12] Generating RTL test bench ...
+INFO: [COSIM-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM-323] Starting verilog simulation. 
+INFO: [COSIM-15] Starting XSIM ...
+INFO: [COSIM-316] Starting C post checking ...
+failed
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "/tools/Xilinx/Vivado/2019.2/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2019.2/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_tiled_matvec_top glbl -prj tiled_matvec.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm --initfile /tools/Xilinx/Vivado/2019.2/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s tiled_matvec 
+Multi-threading is on. Using 6 slave threads.
+WARNING: [XSIM 43-3431] One or more environment variables have been detected which affect the operation of the C compiler. These are typically not set in standard installations and are not tested by Xilinx, however they may be appropriate for your system, so the flow will attempt to continue.  If errors occur, try running xelab with the "-mt off -v 1" switches to see more information from the C compiler. The following environment variables have been detected:
+    LIBRARY_PATH
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/AESL_autofifo_xtile_V_vec_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_autofifo_xtile_V_vec_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/tiled_matvec_x.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tiled_matvec_x
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/AESL_deadlock_detection_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detect_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/fifo_w32_d2_A.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo_w32_d2_A_shiftReg
+INFO: [VRFC 10-311] analyzing module fifo_w32_d2_A
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/AESL_autofifo_Atile_V_vec_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_autofifo_Atile_V_vec_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/AESL_autofifo_xtile_V_vec_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_autofifo_xtile_V_vec_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/Loop_1_proc10.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Loop_1_proc10
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/AESL_deadlock_detector.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detector
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/tiled_matvec_y_memcore.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tiled_matvec_y_memcore_ram
+INFO: [VRFC 10-311] analyzing module tiled_matvec_y_memcore
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/start_for_tiled_mbkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module start_for_tiled_mbkb_shiftReg
+INFO: [VRFC 10-311] analyzing module start_for_tiled_mbkb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/tiled_matvec_entry12.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tiled_matvec_entry12
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/tiled_matvec.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tiled_matvec
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/Loop_memset_y_proc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Loop_memset_y_proc
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/Block_tiled_matvec_s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Block_tiled_matvec_s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/Loop_5_proc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Loop_5_proc
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/tiled_matvec_y.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tiled_matvec_y
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/tiled_matvec_x_memcore.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tiled_matvec_x_memcore_ram
+INFO: [VRFC 10-311] analyzing module tiled_matvec_x_memcore
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/fifo_w32_d3_A.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo_w32_d3_A_shiftReg
+INFO: [VRFC 10-311] analyzing module fifo_w32_d3_A
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/tiled_matvec.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_tiled_matvec_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/fifo_w32_d4_A.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo_w32_d4_A_shiftReg
+INFO: [VRFC 10-311] analyzing module fifo_w32_d4_A
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/tiled_matvec_entry3.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tiled_matvec_entry3
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/AESL_deadlock_report_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_report_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/AESL_autofifo_Atile_V_vec_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_autofifo_Atile_V_vec_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/AESL_automem_ypartial.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_ypartial
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.tiled_matvec_y_memcore_ram
+Compiling module xil_defaultlib.tiled_matvec_y_memcore
+Compiling module xil_defaultlib.tiled_matvec_y(AddressRange=2)
+Compiling module xil_defaultlib.tiled_matvec_entry3
+Compiling module xil_defaultlib.tiled_matvec_entry12
+Compiling module xil_defaultlib.Loop_1_proc10
+Compiling module xil_defaultlib.Block_tiled_matvec_s
+Compiling module xil_defaultlib.Loop_memset_y_proc
+Compiling module xil_defaultlib.Loop_5_proc
+Compiling module xil_defaultlib.tiled_matvec_x_memcore_ram
+Compiling module xil_defaultlib.tiled_matvec_x_memcore
+Compiling module xil_defaultlib.tiled_matvec_x(AddressRange=2)
+Compiling module xil_defaultlib.fifo_w32_d2_A_shiftReg
+Compiling module xil_defaultlib.fifo_w32_d2_A
+Compiling module xil_defaultlib.fifo_w32_d4_A_shiftReg
+Compiling module xil_defaultlib.fifo_w32_d4_A
+Compiling module xil_defaultlib.fifo_w32_d3_A_shiftReg
+Compiling module xil_defaultlib.fifo_w32_d3_A
+Compiling module xil_defaultlib.start_for_tiled_mbkb_shiftReg
+Compiling module xil_defaultlib.start_for_tiled_mbkb
+Compiling module xil_defaultlib.tiled_matvec
+Compiling module xil_defaultlib.AESL_autofifo_Atile_V_vec_0
+Compiling module xil_defaultlib.AESL_autofifo_Atile_V_vec_1
+Compiling module xil_defaultlib.AESL_autofifo_xtile_V_vec_0
+Compiling module xil_defaultlib.AESL_autofifo_xtile_V_vec_1
+Compiling module xil_defaultlib.AESL_automem_ypartial
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_report_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detector_1
+Compiling module xil_defaultlib.apatb_tiled_matvec_top
+Compiling module work.glbl
+Built simulation snapshot tiled_matvec
+
+****** Webtalk v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source /home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/xsim.dir/tiled_matvec/webtalk/xsim_webtalk.tcl -notrace
+webtalk_transmit: Time (s): cpu = 00:00:00.83 ; elapsed = 00:00:06 . Memory (MB): peak = 402.613 ; gain = 0.000 ; free physical = 139 ; free virtual = 2855
+INFO: [Common 17-206] Exiting Webtalk at Mon Jun  1 11:19:04 2020...
+
+****** xsim v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/tiled_matvec/xsim_script.tcl
+# xsim {tiled_matvec} -autoloadwcfg -tclbatch {tiled_matvec.tcl}
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source tiled_matvec.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 16 [0.00%] @ "125000"
+// RTL Simulation : 1 / 16 [100.00%] @ "465000"
+// RTL Simulation : 2 / 16 [100.00%] @ "765000"
+// RTL Simulation : 3 / 16 [100.00%] @ "1065000"
+// RTL Simulation : 4 / 16 [100.00%] @ "1365000"
+// RTL Simulation : 5 / 16 [100.00%] @ "1695000"
+// RTL Simulation : 6 / 16 [100.00%] @ "1995000"
+// RTL Simulation : 7 / 16 [100.00%] @ "2295000"
+// RTL Simulation : 8 / 16 [100.00%] @ "2595000"
+// RTL Simulation : 9 / 16 [100.00%] @ "2925000"
+// RTL Simulation : 10 / 16 [100.00%] @ "3225000"
+// RTL Simulation : 11 / 16 [100.00%] @ "3525000"
+// RTL Simulation : 12 / 16 [100.00%] @ "3825000"
+// RTL Simulation : 13 / 16 [100.00%] @ "4155000"
+// RTL Simulation : 14 / 16 [100.00%] @ "4455000"
+// RTL Simulation : 15 / 16 [100.00%] @ "4755000"
+// RTL Simulation : 16 / 16 [100.00%] @ "5055000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 5095 ns : File "/home/mickael/stageFGPA/TP/matvec/matvec/solution2/sim/verilog/tiled_matvec.autotb.v" Line 514
+## quit
+INFO: [Common 17-206] Exiting xsim at Mon Jun  1 11:19:22 2020...
+failed
+INFO: [COSIM-1000] *** C/RTL co-simulation finished: PASS ***

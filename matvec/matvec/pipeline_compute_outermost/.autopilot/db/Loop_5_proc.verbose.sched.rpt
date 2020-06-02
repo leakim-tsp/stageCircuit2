@@ -1,0 +1,153 @@
+
+
+================================================================
+== Vivado HLS Report for 'Loop_5_proc'
+================================================================
+* Date:           Mon Jun  1 11:35:24 2020
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        matvec
+* Solution:       solution4
+* Product family: virtex7
+* Target device:  xc7vx485t-ffg1157-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 4.481 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max    | min | max |   Type  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |        5|        5| 50.000 ns | 50.000 ns |    5|    5|   none  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |          |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Loop 1  |        4|        4|         2|          -|          -|     2|    no    |
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 2 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.93>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecInterface(i32* %i2_load_loc, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [11 x i8]* @ScalarProp_str)"   --->   Operation 4 'specinterface' 'empty' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (2.93ns)   --->   "%i2_load_loc_read = call i32 @_ssdm_op_Read.ap_fifo.i32P(i32* %i2_load_loc)"   --->   Operation 5 'read' 'i2_load_loc_read' <Predicate = true> <Delay = 2.93> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 2.93> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 3> <FIFO>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%shl_ln35 = shl i32 %i2_load_loc_read, 1" [matvec.cpp:35]   --->   Operation 6 'shl' 'shl_ln35' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (1.18ns)   --->   "br label %.preheader.i.i"   --->   Operation 7 'br' <Predicate = true> <Delay = 1.18>
+
+State 2 <SV = 1> <Delay = 3.05>
+ST_2 : Operation 8 [1/1] (0.00ns)   --->   "%i6_0_i_i = phi i2 [ %i, %0 ], [ 0, %entry ]"   --->   Operation 8 'phi' 'i6_0_i_i' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 9 [1/1] (0.00ns)   --->   "%zext_ln33 = zext i2 %i6_0_i_i to i32" [matvec.cpp:33]   --->   Operation 9 'zext' 'zext_ln33' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 10 [1/1] (0.61ns)   --->   "%icmp_ln33 = icmp eq i2 %i6_0_i_i, -2" [matvec.cpp:33]   --->   Operation 10 'icmp' 'icmp_ln33' <Predicate = true> <Delay = 0.61> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.61> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 11 [1/1] (0.00ns)   --->   "%empty_24 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 2, i64 2, i64 2)"   --->   Operation 11 'speclooptripcount' 'empty_24' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 12 [1/1] (1.00ns)   --->   "%i = add i2 %i6_0_i_i, 1" [matvec.cpp:33]   --->   Operation 12 'add' 'i' <Predicate = true> <Delay = 1.00> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.63> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "br i1 %icmp_ln33, label %.exit, label %0" [matvec.cpp:33]   --->   Operation 13 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 14 [1/1] (0.00ns)   --->   "%zext_ln35 = zext i2 %i6_0_i_i to i64" [matvec.cpp:35]   --->   Operation 14 'zext' 'zext_ln35' <Predicate = (!icmp_ln33)> <Delay = 0.00>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%y_addr = getelementptr inbounds [2 x i32]* %y, i64 0, i64 %zext_ln35" [matvec.cpp:35]   --->   Operation 15 'getelementptr' 'y_addr' <Predicate = (!icmp_ln33)> <Delay = 0.00>
+ST_2 : Operation 16 [2/2] (1.42ns)   --->   "%y_load = load i32* %y_addr, align 4" [matvec.cpp:35]   --->   Operation 16 'load' 'y_load' <Predicate = (!icmp_ln33)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 17 [1/1] (1.63ns)   --->   "%add_ln35 = add nsw i32 %shl_ln35, %zext_ln33" [matvec.cpp:35]   --->   Operation 17 'add' 'add_ln35' <Predicate = (!icmp_ln33)> <Delay = 1.63> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.63> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%sext_ln35 = sext i32 %add_ln35 to i64" [matvec.cpp:35]   --->   Operation 18 'sext' 'sext_ln35' <Predicate = (!icmp_ln33)> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%ypartial_addr = getelementptr [8 x i32]* %ypartial, i64 0, i64 %sext_ln35" [matvec.cpp:35]   --->   Operation 19 'getelementptr' 'ypartial_addr' <Predicate = (!icmp_ln33)> <Delay = 0.00>
+ST_2 : Operation 20 [2/2] (1.42ns)   --->   "%ypartial_load = load i32* %ypartial_addr, align 4" [matvec.cpp:35]   --->   Operation 20 'load' 'ypartial_load' <Predicate = (!icmp_ln33)> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 21 'ret' <Predicate = (icmp_ln33)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 4.48>
+ST_3 : Operation 22 [1/2] (1.42ns)   --->   "%y_load = load i32* %y_addr, align 4" [matvec.cpp:35]   --->   Operation 22 'load' 'y_load' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_3 : Operation 23 [1/2] (1.42ns)   --->   "%ypartial_load = load i32* %ypartial_addr, align 4" [matvec.cpp:35]   --->   Operation 23 'load' 'ypartial_load' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_3 : Operation 24 [1/1] (1.63ns)   --->   "%add_ln35_1 = add nsw i32 %y_load, %ypartial_load" [matvec.cpp:35]   --->   Operation 24 'add' 'add_ln35_1' <Predicate = true> <Delay = 1.63> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.63> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 25 [1/1] (1.42ns)   --->   "store i32 %add_ln35_1, i32* %ypartial_addr, align 4" [matvec.cpp:35]   --->   Operation 25 'store' <Predicate = true> <Delay = 1.42> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 1.42> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 8> <RAM>
+ST_3 : Operation 26 [1/1] (0.00ns)   --->   "br label %.preheader.i.i" [matvec.cpp:33]   --->   Operation 26 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 2.93ns
+The critical path consists of the following:
+	fifo read on port 'i2_load_loc' [5]  (2.93 ns)
+
+ <State 2>: 3.06ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', matvec.cpp:33) [9]  (0 ns)
+	'add' operation ('add_ln35', matvec.cpp:35) [19]  (1.63 ns)
+	'getelementptr' operation ('ypartial_addr', matvec.cpp:35) [21]  (0 ns)
+	'load' operation ('ypartial_load', matvec.cpp:35) on array 'ypartial' [22]  (1.43 ns)
+
+ <State 3>: 4.48ns
+The critical path consists of the following:
+	'load' operation ('y_load', matvec.cpp:35) on array 'y' [18]  (1.43 ns)
+	'add' operation ('add_ln35_1', matvec.cpp:35) [23]  (1.63 ns)
+	'store' operation ('store_ln35', matvec.cpp:35) of variable 'add_ln35_1', matvec.cpp:35 on array 'ypartial' [24]  (1.43 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

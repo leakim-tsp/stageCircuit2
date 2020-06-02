@@ -1,0 +1,209 @@
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+WARNING: [HLS 200-40] Cannot find library '/tools/Xilinx/Vivado/2019.2/common/technology/xilinx/Virtex-7/Virtex-7.lib'.
+WARNING: [HLS 200-40] Cannot find library 'xilinx/Virtex-7/Virtex-7'.
+INFO: [HLS 200-10] Setting target device to 'xc7vx485t-ffg1157-1'
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'matvec.cpp' ... 
+WARNING: [HLS 214-111] Static scalars and arrays declared inside a dataflow region will be treated like local variables: matvec.cpp:6:15
+WARNING: [HLS 214-111] Static scalars and arrays declared inside a dataflow region will be treated like local variables: matvec.cpp:16:15
+WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region: matvec.cpp:8:2
+WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region: matvec.cpp:17:2
+WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region: matvec.cpp:26:2
+WARNING: [HLS 214-167] There are a total of 4 such instances of non-canonical statements in the dataflow region: matvec.cpp:6:2
+WARNING: [HLS 200-471] Dataflow form checks found 6 issue(s) in file matvec.cpp
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 898.758 ; gain = 459.035 ; free physical = 202 ; free virtual = 2836
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 898.758 ; gain = 459.035 ; free physical = 202 ; free virtual = 2836
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 898.758 ; gain = 459.035 ; free physical = 198 ; free virtual = 2833
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 898.758 ; gain = 459.035 ; free physical = 195 ; free virtual = 2831
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'Atile.V.vec' (matvec.cpp:3) .
+INFO: [XFORM 203-102] Automatically partitioning streamed array 'xtile.V.vec' (matvec.cpp:3) .
+INFO: [XFORM 203-101] Partitioning array 'Atile.V.vec' (matvec.cpp:3) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'xtile.V.vec' (matvec.cpp:3) in dimension 1 completely.
+INFO: [XFORM 203-721] Change variable 'A' to FIFO automatically.
+INFO: [XFORM 203-721] Changing loop 'Loop_1_proc' (matvec.cpp:8) to a process function for dataflow in function 'tiled_matvec'.
+INFO: [XFORM 203-721] Changing loop 'Loop_5_proc' (matvec.cpp:33) to a process function for dataflow in function 'tiled_matvec'.
+WARNING: [XFORM 203-713] All the elements of global array 'y' should be updated in process function 'Loop_memset_y_proc', otherwise it may not be synthesized correctly.
+WARNING: [XFORM 203-713] Reading dataflow channel 'ypartial' in the middle of dataflow may stall the dataflow pipeline:
+WARNING: [XFORM 203-713] Argument 'ypartial' has read and write operations in process function 'Loop_5_proc'.
+WARNING: [XFORM 203-713] All the elements of global array 'ypartial' should be updated in process function 'Loop_5_proc', otherwise it may not be synthesized correctly.
+INFO: [XFORM 203-712] Applying dataflow to function 'tiled_matvec', detected/extracted 5 process function(s): 
+	 'tiled_matvec.entry12'
+	 'Loop_1_proc10'
+	 'Block_tiled_matvec_.exit2_proc11'
+	 'Loop_memset_y_proc'
+	 'Loop_5_proc'.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 898.758 ; gain = 459.035 ; free physical = 163 ; free virtual = 2809
+INFO: [XFORM 203-541] Flattening a loop nest 'Loop-2' (matvec.cpp:26:15) in function 'Loop_memset_y_proc'.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'Loop-1' (matvec.cpp:8:15) in function 'Loop_1_proc10' : 
+
+the outer loop is not a perfect loop.
+WARNING: [XFORM 203-631] Renaming function 'Block_tiled_matvec_.exit2_proc11' to 'Block_tiled_matvec_.' (matvec.cpp:3:52)
+INFO: [HLS 200-472] Inferring partial write operation for 'y' (matvec.cpp:25:29)
+INFO: [HLS 200-472] Inferring partial write operation for 'y' (matvec.cpp:28:4)
+INFO: [HLS 200-472] Inferring partial write operation for 'x' (matvec.cpp:20:4)
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 962.758 ; gain = 523.035 ; free physical = 133 ; free virtual = 2758
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'tiled_matvec' ...
+WARNING: [SYN 201-103] Legalizing function name 'tiled_matvec.entry3' to 'tiled_matvec_entry3'.
+WARNING: [SYN 201-103] Legalizing function name 'tiled_matvec.entry12' to 'tiled_matvec_entry12'.
+WARNING: [SYN 201-103] Legalizing function name 'Block_tiled_matvec_.' to 'Block_tiled_matvec_s'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'tiled_matvec_entry3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 11.34 seconds; current allocated memory: 171.577 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.01 seconds; current allocated memory: 171.626 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'tiled_matvec_entry12' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 171.744 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0 seconds; current allocated memory: 171.798 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Loop_1_proc10' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'tiled_matvec_loadA'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 171.911 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.02 seconds; current allocated memory: 172.077 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Block_tiled_matvec_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'tiled_matvec_loadx'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 1.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.09 seconds; current allocated memory: 172.233 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.02 seconds; current allocated memory: 172.377 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Loop_memset_y_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'L_tiled_matvec_compute'.
+WARNING: [SCHED 204-68] The II Violation in module 'Loop_memset_y_proc' (Loop: L_tiled_matvec_compute): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1)
+   between 'store' operation ('y_addr_1_write_ln28', matvec.cpp:28) of variable 'add_ln28', matvec.cpp:28 on array 'y' and 'load' operation ('y_load', matvec.cpp:28) on array 'y'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 2, Depth = 4.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 172.657 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 172.884 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Loop_5_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 172.973 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.01 seconds; current allocated memory: 173.071 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'tiled_matvec' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 173.226 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.06 seconds; current allocated memory: 173.398 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'tiled_matvec_entry3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'tiled_matvec_entry3'.
+INFO: [HLS 200-111]  Elapsed time: 0.04 seconds; current allocated memory: 173.568 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'tiled_matvec_entry12' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'tiled_matvec_entry12'.
+INFO: [HLS 200-111]  Elapsed time: 0.02 seconds; current allocated memory: 173.850 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Loop_1_proc10' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Loop_1_proc10'.
+INFO: [HLS 200-111]  Elapsed time: 0.03 seconds; current allocated memory: 174.270 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Block_tiled_matvec_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Block_tiled_matvec_s'.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 174.980 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Loop_memset_y_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Loop_memset_y_proc'.
+INFO: [HLS 200-111]  Elapsed time: 0.05 seconds; current allocated memory: 175.799 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Loop_5_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Loop_5_proc'.
+INFO: [HLS 200-111]  Elapsed time: 0.1 seconds; current allocated memory: 176.768 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'tiled_matvec' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'tiled_matvec/Atile_V_vec_0' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'tiled_matvec/Atile_V_vec_1' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'tiled_matvec/xtile_V_vec_0' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'tiled_matvec/xtile_V_vec_1' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'tiled_matvec/ypartial' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'tiled_matvec/i1' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'tiled_matvec/i2' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'tiled_matvec' to 'ap_ctrl_hs'.
+INFO: [SYN 201-210] Renamed object name 'start_for_tiled_matvec_entry12_U0' to 'start_for_tiled_mbkb' due to the length limit 20
+WARNING: [RTGEN 206-101] Port 'tiled_matvec/i1' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'tiled_matvec'.
+INFO: [HLS 200-111]  Elapsed time: 0.07 seconds; current allocated memory: 177.873 MB.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 151.29 MHz
+INFO: [HLS 200-741] Implementing PIPO tiled_matvec_y_memcore using a single memory for all blocks
+INFO: [RTMG 210-278] Implementing memory 'tiled_matvec_y_memcore_ram (RAM)' using distributed RAMs.
+INFO: [HLS 200-741] Implementing PIPO tiled_matvec_x_memcore using a single memory for all blocks
+INFO: [RTMG 210-278] Implementing memory 'tiled_matvec_x_memcore_ram (RAM)' using distributed RAMs with power-on initialization.
+INFO: [RTMG 210-285] Implementing FIFO 'i2_c1_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'i2_c_U(fifo_w32_d2_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'A_U(fifo_w32_d4_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'i2_load_loc_c_U(fifo_w32_d3_A)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_tiled_mbkb_U(start_for_tiled_mbkb)' using Shift Registers.
+INFO: [HLS 200-741] Implementing PIPO tiled_matvec_y_memcore using a single memory for all blocks
+==============================================================
+Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2019.2 (64-bit)
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+==============================================================

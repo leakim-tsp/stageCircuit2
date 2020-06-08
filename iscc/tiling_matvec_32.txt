@@ -1,0 +1,7 @@
+for (int c0 = 0; c0 < N; c0 += 32)
+  for (int c1 = 0; c1 < N; c1 += 32)
+    for (int c2 = 0; c2 < N; c2 += 32)
+      for (int c3 = c0; c3 <= min(N - 1, c0 + 31); c3 += 1)
+        for (int c4 = c1; c4 <= min(N - 1, c1 + 31); c4 += 1)
+          for (int c5 = c2; c5 <= min(N - 1, c2 + 31); c5 += 1)
+            compute(c3, c4, c5);

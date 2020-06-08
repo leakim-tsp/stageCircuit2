@@ -1,0 +1,68 @@
+P := parse_file "lab1_ex1.c" ;
+print "-------- D = iteration domain -------" ;
+D := P[0] ;
+print P[0] ;
+print "number of points of D" ;
+print card P[0] ;
+
+print "-----------------" ;
+original_schedule := map(P[4]) ;
+print typeof P[4] ;
+print P[4] ;
+print map(P[4]) ;
+print "regenerate code" ;
+codegen (original_schedule * D) ;
+
+print "-------- Access relations ----------" ;
+print "Must-write:";
+print P[1];
+print "May-write:";
+print P[2];
+print "May-read:";
+print P[3];
+Write := P[2];
+Read := P[3];
+
+print "------- data space of arrays -------" ;
+DataSpace := dom Read^-1 ;
+print DataSpace ;
+# print ran Read ;
+print "data spaces sizes" ;
+print card DataSpace ;
+
+print "------- dependence analysis -------" ;
+print "Schedule" ;
+Schedule := map(P[4]) ;
+print Schedule ;
+Order := Schedule << Schedule ;
+print " Order relation : " ;
+print Order ;
+print " Read - after - write dependence relation : " ;
+( Write . Read ^ -1 ) * Order ;
+print " Write - after - read dependence relation : " ;
+( Read . Write ^ -1 ) * Order ;
+print " Write - after - write dependence relation : " ;
+( Write . Write ^ -1 ) * Order ;
+
+print "---------- manual dataflow analysis ----------" ;
+A := ( Read . Write ^ -1 ) * ( Order ^ -1);
+F := (( lexmax ( A . Schedule )) . Schedule ^ -1 )^ -1;
+print " Reads mapped to all previous writes : " ;
+print A ;
+print " Flow dependences : " ;
+print F ;
+
+print "---------------- dataflow analysis ---------" ;
+F := last Write before Read under Schedule ;
+print " Flow dependences : " ;
+print F [0];
+print " Live - in accesses : " ;
+# contains the read accesses that may read a value that was not written inside the analyzed program fragment
+print F [1];
+
+print " Read - after - write dependence relation : " ;
+any Write before Read under Schedule ;
+print " Write - after - read dependence relation : " ;
+any Read before Write under Schedule ;
+print " Write - after - write dependence relation : " ;
+any Write before Write under Schedule ;

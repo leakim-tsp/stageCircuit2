@@ -1,0 +1,15 @@
+P := parse_file "lab1_ex1.c" ;
+D := P[0] ;
+original_schedule := map(P[4]) ;
+#  square tiling  of size 32 at depth 0
+# stripe mining c0 loop
+schedule_0 := { [c0, c1, c2] -> [tc0, c0, c1, c2]: tc0 mod 32 = 0 and  tc0 <= c0 < tc0 + 32 } ;
+# stripe mining c1 loop
+schedule_1 := { [tc0, c0, c1, c2] -> [tc0, c0, tc1, c1, c2]: tc1 mod 32 = 0 and  tc1 <= c1 < tc1 + 32 } ;
+# stripe mining c2 loop
+schedule_2 := { [tc0, c0, tc1, c1, c2] -> [tc0, c0, tc1, c1, tc2, c2]: tc2 mod 32 = 0 and  tc2 <= c2 < tc2 + 32 } ;
+# interchange
+schedule_3 := { [tc0, c0, tc1, c1, tc2, c2] -> [tc0, tc1, tc2, c0, c1, c2] } ;
+# compose stripe minings and interchange
+tiling_schedule := schedule_3(schedule_2(schedule_1(schedule_0(original_schedule)))) ;
+codegen(tiling_schedule * D) ;

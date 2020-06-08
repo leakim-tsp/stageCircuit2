@@ -1,0 +1,43 @@
+print "original schedule" ;
+s:= [n]->{ s1[i,j] : 0 <= i,j < n ; s2[i,j,k] : 0 <= i,j,k < n};
+origsched:= {s1[i,j] -> [i,j,0,0]; s2[i,j,k] -> [i,j,1,k]};
+codegen(origsched * s);
+
+# interchange
+print "interchange schedule" ;
+interchsched := {s1[i,j] -> [j,i,0,0]; s2[i,j,k] -> [j,i,1,k]};
+codegen(interchsched * s);
+
+# skewing
+print "skewing" ;
+skewsched := {s1[i,j] -> [i+j,j,0,0]; s2[i,j,k] -> [i+j,j,1,k]};
+codegen(skewsched * s);
+
+# fusion
+print "fusion" ;
+print "---before ";
+temp := [n]->{ s1[i,j] : 0 <= i,j < n ; s2[i,j] : 0 <= i,j < n};
+schedtemp := {s1[i,j] -> [i,0,j]; s2[i,j] -> [i,1,j]};
+fusesched := {s1[i,j] -> [i,j,0]; s2[i,j] -> [i,j,1]};
+codegen(schedtemp * temp);
+print "---after ";
+codegen(fusesched * temp);
+
+#stripmining
+print "stripmining" ;
+print "---before ";
+temp := [n]->{ s1[i] : 0 <= i < n } ;
+schedtemp := {s1[i] -> [i] } ;
+codegen(schedtemp * temp);
+print "---after ";
+stripe := { [i] -> [t, i] : t mod 32 = 0 and t <= i < t + 32 } ;
+stripesched := stripe(schedtemp) ;
+codegen(stripesched  * temp);
+
+#tiling
+print "square tiling of size 32" ;
+stripei32 := { [i, j, b, k] -> [it, i, j, b, k] : it mod 32 = 0 and it <= i < it + 32 } ;
+stripej32 := { [it, i, j, b, k] -> [it, i, jt, j, b, k] : jt mod 32 = 0 and jt <= j < jt + 32 } ;
+interchange := { [a, b, c, d, e, f] -> [a, c, b, d, e, f] } ;
+tilesched := interchange(stripej32(stripei32(origsched))) ;
+codegen(tilesched * s);
